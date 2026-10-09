@@ -4,9 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="@drawable/bg_glass_input"
+    android:background="@drawable/bg_clay_card"
     android:orientation="vertical"
-    android:padding="@dimen/spacing_md">
+    android:paddingHorizontal="@dimen/spacing_md"
+    android:paddingTop="@dimen/spacing_md"
+    android:paddingBottom="18dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,15 +16,15 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <!-- Avatar Inisial -->
+        <!-- Avatar Inisial Clay -->
         <TextView
             android:id="@+id/tvAvatarInitial"
             style="@style/TextAppearance.Sepi.Title"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_chip_selected"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_clay_tile_sky"
             android:gravity="center"
-            android:textColor="@color/sepi_orange_700"
+            android:textColor="@color/sepi_brand_shade"
             android:textSize="14sp"
             tools:text="A" />
 
@@ -49,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:isIndicator="true"
                 android:numStars="5"
-                android:progressTint="@color/sepi_amber_400" />
+                android:progressTint="@color/sepi_star" />
         </LinearLayout>
 
         <TextView

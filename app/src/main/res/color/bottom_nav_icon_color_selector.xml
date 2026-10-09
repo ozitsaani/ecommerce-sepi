@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Warna ikon bottom navigation (putih saat checked di dalam pill biru) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/white" android:state_checked="true" />
+    <item android:color="@color/sepi_ink_soft" />
+</selector>

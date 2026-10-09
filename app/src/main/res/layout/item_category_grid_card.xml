@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardCategory"
+    android:layout_width="match_parent"
+    android:layout_height="112dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/bg_clay_tile_sky"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <!-- Lingkaran Inset Ikon 56dp -->
+    <FrameLayout
+        android:id="@+id/layoutCategoryCircle"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_clay_circle_hi"
+        android:padding="14dp">
+
+        <ImageView
+            android:id="@+id/ivCategoryIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_cat_tag"
+            app:tint="@color/sepi_brand_shade" />
+    </FrameLayout>
+
+    <!-- Nama Kategori (14sp 700 Nunito) -->
+    <TextView
+        android:id="@+id/tvCategoryName"
+        style="@style/TextAppearance.Sepi.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/sepi_ink"
+        android:textSize="14sp"
+        tools:text="Elektronik" />
+
+</LinearLayout>

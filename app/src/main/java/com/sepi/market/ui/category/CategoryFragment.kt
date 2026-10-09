@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,7 +15,9 @@ import androidx.navigation.fragment.findNavController
 import com.sepi.market.R
 import com.sepi.market.SepiApp
 import com.sepi.market.core.UiState
+import com.sepi.market.core.bounce
 import com.sepi.market.core.gone
+import com.sepi.market.core.showIf
 import com.sepi.market.core.visible
 import com.sepi.market.data.remote.dto.CategoryDto
 import com.sepi.market.databinding.FragmentCategoryBinding
@@ -21,7 +25,7 @@ import com.sepi.market.ui.common.SkeletonHelper
 import kotlinx.coroutines.launch
 
 /**
- * Fragment Layar Kategori (PRD Bagian 9.3 Screen 4).
+ * Fragment Layar Kategori (PRD Bagian 9.3 Screen 4 & DESIGN_CLAY.md).
  */
 class CategoryFragment : Fragment() {
 
@@ -46,9 +50,18 @@ class CategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupInsets()
         setupAdapter()
         setupListeners()
         observeViewModel()
+    }
+
+    private fun setupInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.headerContainer) { v, insets ->
+            val statusBarInset = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            v.setPadding(v.paddingLeft, statusBarInset + 16, v.paddingRight, v.paddingBottom)
+            insets
+        }
     }
 
     private fun setupAdapter() {
@@ -66,13 +79,31 @@ class CategoryFragment : Fragment() {
         binding.swipeRefresh.setOnRefreshListener {
             viewModel.loadCategories()
         }
+
+        binding.btnCartContainer.setOnClickListener {
+            findNavController().navigate(R.id.cartFragment)
+        }
     }
 
     private fun observeViewModel() {
+        val appContainer = (requireActivity().application as SepiApp).appContainer
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.categoryState.collect { state ->
-                    handleState(state)
+                launch {
+                    viewModel.categoryState.collect { state ->
+                        handleState(state)
+                    }
+                }
+                launch {
+                    appContainer.cartRepository.cartCount.collect { count ->
+                        val hasItems = count > 0
+                        binding.tvCartBadge.showIf(hasItems)
+                        if (hasItems) {
+                            binding.tvCartBadge.text = count.toString()
+                            binding.tvCartBadge.bounce()
+                        }
+                    }
                 }
             }
         }

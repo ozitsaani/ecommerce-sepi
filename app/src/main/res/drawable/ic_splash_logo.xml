@@ -3,9 +3,9 @@
     android:height="96dp"
     android:viewportWidth="96"
     android:viewportHeight="96">
-    <!-- Rounded Orange Gradient Background -->
+    <!-- Rounded Blue Background -->
     <path
-        android:fillColor="#EA580C"
+        android:fillColor="@color/sepi_brand_500"
         android:pathData="M24,8h48c8.84,0 16,7.16 16,16v48c0,8.84 -7.16,16 -16,16H24c-8.84,0 -16,-7.16 -16,-16V24c0,-8.84 7.16,-16 16,-16z" />
     <!-- White Shopping Bag Glyph -->
     <path

@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:visibility="gone" />
 
-        <!-- Skeleton Loading -->
+        <!-- Skeleton Loading (Shimmer) -->
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmerHome"
             android:layout_width="match_parent"
@@ -32,70 +32,103 @@
 
                 <View
                     android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_clay_blue_header" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_clay_card" />
+
+                <View
+                    android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@drawable/bg_glass_card" />
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_clay_card" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="220dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/bg_glass_card" />
+                    android:background="@drawable/bg_clay_blue_panel" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="320dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/bg_glass_card" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/bg_glass_card" />
+                    android:background="@drawable/bg_clay_card" />
             </LinearLayout>
         </com.facebook.shimmer.ShimmerFrameLayout>
 
-        <!-- Main Content -->
+        <!-- Konten Utama Beranda -->
         <androidx.core.widget.NestedScrollView
             android:id="@+id/contentScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:paddingBottom="96dp">
+            android:overScrollMode="never"
+            android:paddingBottom="104dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Header Kaca -->
+                <!-- 1. Header Clay Biru Tinggi Melengkung (design/beranda.png) -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_glass_header"
+                    android:background="@drawable/bg_clay_blue_header"
                     android:orientation="vertical"
-                    android:padding="@dimen/spacing_base">
+                    android:id="@+id/headerBlue"
+                    android:paddingStart="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="24dp">
 
+                    <!-- Baris Atas: Sapaan Pengguna & Tombol Keranjang Bulat Putih Clay -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tvGreeting"
-                            style="@style/TextAppearance.Sepi.Title"
+                        <!-- Kolom Sapaan -->
+                        <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            tools:text="Halo, Sobat Sepi" />
+                            android:orientation="vertical">
 
-                        <!-- Ikon Keranjang dengan Badge -->
+                            <TextView
+                                android:id="@+id/tvGreeting"
+                                style="@style/TextAppearance.Sepi.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:fontFamily="@font/nunito_extrabold"
+                                tools:text="Halo, Rina 👋" />
+
+                            <TextView
+                                android:id="@+id/tvSubGreeting"
+                                style="@style/TextAppearance.Sepi.Subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Mau belanja apa hari ini?"
+                                android:textColor="#E8F1FC"
+                                android:textSize="13sp"
+                                android:fontFamily="@font/nunito_semibold" />
+                        </LinearLayout>
+
+                        <!-- Tombol Keranjang Putih Clay Bulat 3D dengan Badge Merah -->
                         <FrameLayout
                             android:id="@+id/btnCartContainer"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_clay_round"
                             android:clickable="true"
                             android:focusable="true">
 
@@ -105,14 +138,15 @@
                                 android:layout_gravity="center"
                                 android:contentDescription="@string/cart_title"
                                 android:src="@drawable/ic_cart"
-                                app:tint="@color/sepi_orange_600" />
+                                app:tint="@color/sepi_ink" />
 
                             <TextView
                                 android:id="@+id/tvCartBadge"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_gravity="top|end"
-                                android:background="@drawable/bg_badge_discount"
+                                android:background="@drawable/bg_cart_badge"
+                                android:fontFamily="@font/nunito_extrabold"
                                 android:gravity="center"
                                 android:textColor="@color/white"
                                 android:textSize="10sp"
@@ -123,17 +157,18 @@
                         </FrameLayout>
                     </LinearLayout>
 
-                    <!-- Search Bar -->
+                    <!-- Baris Bawah: Search Bar Putih Solid (tanpa ikon filter - sesuai daftar hapus) -->
                     <LinearLayout
                         android:id="@+id/searchBar"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/input_height"
-                        android:layout_marginTop="@dimen/spacing_md"
-                        android:background="@drawable/bg_glass_input"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_clay_search_white"
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="@dimen/spacing_md">
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="14dp">
 
                         <ImageView
                             android:layout_width="20dp"
@@ -144,71 +179,76 @@
 
                         <TextView
                             style="@style/TextAppearance.Sepi.Subtitle"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/spacing_sm"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:text="@string/search_hint"
                             android:textColor="@color/sepi_ink_soft"
-                            android:textSize="@dimen/text_base" />
+                            android:textSize="14sp"
+                            android:fontFamily="@font/nunito_semibold" />
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- 2. Seksi Voucher -->
+                <!-- 2. Seksi Kupon Spesial Kamu (Voucher Carousel) -->
                 <LinearLayout
                     android:id="@+id/sectionVouchers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_md"
+                    android:layout_marginTop="16dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="@dimen/spacing_base">
+                        android:paddingHorizontal="16dp">
 
                         <TextView
                             style="@style/TextAppearance.Sepi.Title"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/section_vouchers"
-                            android:textSize="@dimen/text_lg" />
+                            android:text="Voucher Spesial Untukmu"
+                            android:textColor="@color/sepi_ink"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/nunito_extrabold" />
 
                         <TextView
                             android:id="@+id/tvSeeAllVouchers"
                             style="@style/TextAppearance.Sepi.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/view_all"
-                            android:textColor="@color/sepi_orange_700"
-                            android:textStyle="bold" />
+                            android:text="Geser ›"
+                            android:textColor="@color/sepi_ink_soft"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/nunito_semibold" />
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvVouchers"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:layout_marginTop="10dp"
                         android:clipToPadding="false"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="@dimen/spacing_base"
+                        android:paddingHorizontal="16dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </LinearLayout>
 
-                <!-- 3. Seksi Kategori -->
+                <!-- 3. Seksi Kategori (Ubin Lingkaran Pastel Clay) -->
                 <LinearLayout
                     android:id="@+id/sectionCategories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_md"
+                    android:layout_marginTop="18dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="@dimen/spacing_base">
+                        android:paddingHorizontal="16dp">
 
                         <TextView
                             style="@style/TextAppearance.Sepi.Title"
@@ -216,7 +256,9 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/section_categories"
-                            android:textSize="@dimen/text_lg" />
+                            android:textColor="@color/sepi_ink"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/nunito_extrabold" />
 
                         <TextView
                             android:id="@+id/tvSeeAllCategories"
@@ -224,117 +266,182 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/view_all"
-                            android:textColor="@color/sepi_orange_700"
-                            android:textStyle="bold" />
+                            android:textColor="@color/sepi_text_accent"
+                            android:textSize="13sp"
+                            android:fontFamily="@font/nunito_bold" />
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvCategories"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:layout_marginTop="8dp"
                         android:clipToPadding="false"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="@dimen/spacing_base"
+                        android:paddingHorizontal="16dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </LinearLayout>
 
-                <!-- 4. Seksi Flash Sale -->
+                <!-- 4. Seksi Flash Sale (Panel Biru Clay dengan Badge Kuning Emas) -->
                 <LinearLayout
                     android:id="@+id/sectionFlashSale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_md"
-                    android:orientation="vertical">
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_clay_blue_panel"
+                    android:orientation="vertical"
+                    android:paddingStart="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="20dp">
 
+                    <!-- Baris Header Flash Sale -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="@dimen/spacing_base">
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="2dp">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:contentDescription="@null"
                             android:src="@drawable/ic_bolt"
-                            app:tint="@color/sepi_orange_600" />
+                            app:tint="@color/white" />
 
                         <TextView
                             style="@style/TextAppearance.Sepi.Title"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
                             android:text="@string/section_flash_sale"
-                            android:textSize="@dimen/text_lg" />
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/nunito_extrabold" />
 
-                        <TextView
-                            android:id="@+id/tvFlashCountdown"
-                            style="@style/TextAppearance.Sepi.Caption"
+                        <!-- Badge Hitung Mundur Kuning Emas (design/beranda.png) -->
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:background="@drawable/bg_badge_flash_sale"
-                            android:paddingHorizontal="6dp"
-                            android:paddingVertical="2dp"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            tools:text="02:45:10" />
+                            android:background="@drawable/bg_badge_countdown_gold"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_clock"
+                                app:tint="@color/sepi_ink" />
+
+                            <TextView
+                                android:id="@+id/tvFlashCountdown"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:textColor="@color/sepi_ink"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/nunito_extrabold"
+                                tools:text="02 : 14 : 37" />
+                        </LinearLayout>
                     </LinearLayout>
 
+                    <!-- Horizontal List Produk Flash Sale (kartu 148dp, ~2,2 terlihat) -->
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvFlashSale"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:layout_marginTop="12dp"
                         android:clipToPadding="false"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="@dimen/spacing_base"
+                        android:paddingHorizontal="4dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </LinearLayout>
 
-                <!-- 5. Seksi Rekomendasi -->
+                <!-- 5. Seksi Rekomendasi Untukmu (Grid 2 Kolom) -->
                 <LinearLayout
                     android:id="@+id/sectionRecommendations"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_md"
+                    android:layout_marginTop="22dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingHorizontal="@dimen/spacing_base">
+                        android:paddingHorizontal="16dp">
 
                         <TextView
                             style="@style/TextAppearance.Sepi.Title"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/section_recommendations"
-                            android:textSize="@dimen/text_lg" />
+                            android:text="Rekomendasi untukmu"
+                            android:textColor="@color/sepi_ink"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/nunito_extrabold" />
 
                         <TextView
-                            android:id="@+id/tvSeeAllRecommendations"
+                            android:id="@+id/tvSeeAllRecsHeader"
                             style="@style/TextAppearance.Sepi.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/view_all"
-                            android:textColor="@color/sepi_orange_700"
-                            android:textStyle="bold" />
+                            android:textColor="@color/sepi_text_accent"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/nunito_bold" />
                     </LinearLayout>
 
+                    <!-- Grid 2 Kolom Produk Rekomendasi -->
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvRecommendations"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:layout_marginTop="8dp"
                         android:layoutAnimation="@anim/layout_animation_fade_in"
                         android:nestedScrollingEnabled="false"
                         android:paddingHorizontal="10dp"
                         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         app:spanCount="2" />
+
+                    <!-- Tombol Lebar Penuh: Lihat Semua Produk (design/beranda.png) -->
+                    <LinearLayout
+                        android:id="@+id/tvSeeAllRecommendations"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/bg_btn_see_all_white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lihat semua produk"
+                            android:textColor="@color/sepi_brand_500"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/nunito_extrabold" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="8dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:tint="@color/sepi_brand_500" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>

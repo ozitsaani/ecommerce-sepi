@@ -3,20 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/sepi_sky_50">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Header Bar Kaca -->
+        <!-- Header Bar Clay Biru -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_glass_header"
+            android:background="@drawable/bg_clay_blue_header"
             android:gravity="center_vertical"
-            android:padding="@dimen/spacing_sm">
+            android:paddingHorizontal="@dimen/spacing_base"
+            android:paddingTop="12dp"
+            android:paddingBottom="18dp">
 
             <ImageView
                 android:id="@+id/btnBack"
@@ -26,7 +29,7 @@
                 android:contentDescription="@string/cancel"
                 android:padding="8dp"
                 android:src="@drawable/ic_arrow_back"
-                app:tint="@color/sepi_ink" />
+                app:tint="@color/white" />
 
             <TextView
                 style="@style/TextAppearance.Sepi.Title"
@@ -34,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
+                android:textColor="@color/white"
                 android:text="@string/tracking_title" />
 
         </LinearLayout>
@@ -72,19 +76,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
                             android:layout_marginBottom="12dp"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="140dp"
                             android:layout_marginBottom="12dp"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
                             android:layout_marginBottom="12dp"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
                     </LinearLayout>
                 </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -107,10 +111,12 @@
                             android:id="@+id/cardStepper"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:gravity="center"
                             android:orientation="horizontal"
-                            android:padding="@dimen/spacing_md">
+                            android:paddingHorizontal="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_md"
+                            android:paddingBottom="20dp">
 
                             <TextView
                                 android:id="@+id/stepPaid"
@@ -156,9 +162,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md"
+                            android:paddingHorizontal="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_md"
+                            android:paddingBottom="20dp"
                             android:visibility="gone"
                             tools:visibility="visible">
 
@@ -185,10 +193,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:gravity="center_vertical"
                             android:orientation="horizontal"
-                            android:padding="@dimen/spacing_md"
+                            android:paddingHorizontal="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_md"
+                            android:paddingBottom="20dp"
                             android:visibility="gone"
                             tools:visibility="visible">
 
@@ -219,9 +229,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
+                            android:paddingHorizontal="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_md"
+                            android:paddingBottom="20dp">
 
                             <!-- Kode Pesanan & Tombol Salin -->
                             <LinearLayout
@@ -254,7 +266,7 @@
                                     android:contentDescription="@string/btn_copy_code"
                                     android:padding="4dp"
                                     android:src="@drawable/ic_copy"
-                                    app:tint="@color/sepi_orange_600" />
+                                    app:tint="@color/sepi_brand_shade" />
                             </LinearLayout>
 
                             <!-- Tanggal Pembuatan -->
@@ -284,7 +296,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_marginVertical="8dp"
-                                android:background="@color/sepi_glass_stroke" />
+                                android:background="@color/sepi_divider" />
 
                             <!-- Kurir -->
                             <LinearLayout
@@ -341,7 +353,7 @@
                                     android:padding="4dp"
                                     android:src="@drawable/ic_copy"
                                     android:visibility="gone"
-                                    app:tint="@color/sepi_orange_600"
+                                    app:tint="@color/sepi_brand_shade"
                                     tools:visibility="visible" />
                             </LinearLayout>
 
@@ -352,9 +364,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
+                            android:paddingHorizontal="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_md"
+                            android:paddingBottom="20dp">
 
                             <TextView
                                 style="@style/TextAppearance.Sepi.Title"
@@ -379,9 +393,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
+                            android:paddingHorizontal="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_md"
+                            android:paddingBottom="20dp">
 
                             <TextView
                                 style="@style/TextAppearance.Sepi.Title"
@@ -414,9 +430,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
+                            android:paddingHorizontal="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_md"
+                            android:paddingBottom="20dp">
 
                             <TextView
                                 style="@style/TextAppearance.Sepi.Title"
@@ -441,9 +459,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
+                            android:paddingHorizontal="@dimen/spacing_md"
+                            android:paddingTop="@dimen/spacing_md"
+                            android:paddingBottom="20dp">
 
                             <TextView
                                 style="@style/TextAppearance.Sepi.Title"
@@ -520,7 +540,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
                                 android:layout_marginVertical="8dp"
-                                android:background="@color/sepi_glass_stroke" />
+                                android:background="@color/sepi_divider" />
 
                             <!-- Total -->
                             <LinearLayout

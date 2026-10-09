@@ -31,13 +31,13 @@ fun View.showIf(condition: Boolean) {
 }
 
 /**
- * Memuat gambar URL dengan Coil, menggunakan warna peach sebagai placeholder dan ikon broken saat gagal.
+ * Memuat gambar URL dengan Coil, menggunakan warna sky sebagai placeholder dan ikon broken saat gagal.
  */
 fun ImageView.loadImage(url: String?) {
-    val peachPlaceholder = ColorDrawable(ContextCompat.getColor(context, R.color.sepi_peach_100))
+    val skyPlaceholder = ColorDrawable(ContextCompat.getColor(context, R.color.sepi_sky_100))
     load(url) {
         crossfade(200)
-        placeholder(peachPlaceholder)
+        placeholder(skyPlaceholder)
         error(R.drawable.ic_image_broken)
     }
 }

@@ -3,38 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/sepi_sky_50">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Header Bar Kaca -->
+        <!-- Header Bar Clay Biru Melengkung (05_checkout.png) -->
         <LinearLayout
+            android:id="@+id/headerContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_glass_header"
+            android:background="@drawable/bg_clay_blue_header"
             android:gravity="center_vertical"
-            android:padding="@dimen/spacing_sm">
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/spacing_base"
+            android:paddingTop="12dp"
+            android:paddingBottom="16dp">
 
+            <!-- Tombol Kembali Lingkaran Biru Tua Clay -->
             <ImageView
                 android:id="@+id/btnBack"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
+                android:background="@drawable/bg_clay_circle_header_btn"
                 android:contentDescription="@string/cancel"
-                android:padding="8dp"
+                android:padding="9dp"
                 android:src="@drawable/ic_arrow_back"
-                app:tint="@color/sepi_ink" />
+                app:tint="@color/white" />
 
+            <!-- Judul Halaman -->
             <TextView
-                style="@style/TextAppearance.Sepi.Title"
+                android:id="@+id/tvCheckoutHeaderTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="14dp"
                 android:layout_weight="1"
-                android:text="@string/checkout_title" />
+                android:fontFamily="@font/nunito"
+                android:text="@string/checkout_title"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -72,13 +83,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
                             android:layout_marginBottom="12dp"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="160dp"
                             android:layout_marginBottom="12dp"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@drawable/bg_clay_card" />
                     </LinearLayout>
                 </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -88,99 +105,168 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clipToPadding="false"
-                    android:padding="@dimen/spacing_base"
-                    android:paddingBottom="100dp">
+                    android:paddingHorizontal="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="120dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <!-- 1. Alamat Pengiriman -->
+                        <!-- KARTU 1: ALAMAT PENGIRIMAN -->
                         <LinearLayout
+                            android:id="@+id/cardAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
+                            android:paddingHorizontal="14dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="16dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center_vertical">
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
 
                                 <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:background="@drawable/bg_clay_icon_circle_blue"
                                     android:contentDescription="@null"
+                                    android:padding="6dp"
                                     android:src="@drawable/ic_location"
-                                    app:tint="@color/sepi_orange_600" />
+                                    app:tint="@color/sepi_brand_500" />
 
                                 <TextView
-                                    style="@style/TextAppearance.Sepi.Title"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="8dp"
+                                    android:layout_marginStart="10dp"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
                                     android:text="@string/shipping_address_title"
-                                    android:textSize="@dimen/text_md" />
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
 
-                                <com.google.android.material.button.MaterialButton
+                                <TextView
                                     android:id="@+id/btnChangeAddress"
-                                    style="@style/Widget.Sepi.Button.Secondary"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="36dp"
-                                    android:paddingHorizontal="12dp"
-                                    android:paddingVertical="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:fontFamily="@font/nunito"
+                                    android:padding="4dp"
                                     android:text="@string/change_address"
-                                    android:textSize="12sp" />
+                                    android:textColor="@color/sepi_brand_500"
+                                    android:textSize="13.5sp"
+                                    android:textStyle="bold" />
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/tvRecipient"
-                                style="@style/TextAppearance.Sepi.Body"
+                            <!-- Kotak Inset Alamat -->
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:textStyle="bold"
-                                tools:text="Budi Santoso (081234567890)" />
+                                android:layout_marginTop="12dp"
+                                android:background="@drawable/bg_clay_inner_tint"
+                                android:orientation="vertical"
+                                android:padding="12dp">
 
-                            <TextView
-                                android:id="@+id/tvFullAddress"
-                                style="@style/TextAppearance.Sepi.Caption"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                tools:text="Jl. Siliwangi No. 45, Kesambi, Cirebon 45131" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/tvNonCirebonWarning"
-                                style="@style/TextAppearance.Sepi.Caption"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="@string/non_cirebon_warning"
-                                android:textColor="@color/sepi_danger"
-                                android:textStyle="bold"
-                                android:visibility="gone" />
+                                    <TextView
+                                        android:id="@+id/tvRecipient"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/nunito"
+                                        android:textColor="@color/sepi_ink"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold"
+                                        tools:text="Rina Maulida • 0812-3456-7890" />
+
+                                    <TextView
+                                        android:id="@+id/tvBadgeUtama"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/bg_badge_utama"
+                                        android:fontFamily="@font/nunito"
+                                        android:paddingHorizontal="8dp"
+                                        android:paddingVertical="2dp"
+                                        android:text="UTAMA"
+                                        android:textColor="@color/sepi_success"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/tvFullAddress"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:fontFamily="@font/nunito"
+                                    android:textColor="@color/sepi_ink_soft"
+                                    android:textSize="12sp"
+                                    tools:text="Jl. Kartini No. 12, Kejaksan, Cirebon 45121" />
+
+                                <TextView
+                                    android:id="@+id/tvNonCirebonWarning"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/non_cirebon_warning"
+                                    android:textColor="@color/sepi_danger"
+                                    android:textSize="11.5sp"
+                                    android:textStyle="bold"
+                                    android:visibility="gone" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
-                        <!-- 2. Rincian Barang -->
+                        <!-- KARTU 2: PRODUK DIPESAN -->
                         <LinearLayout
+                            android:id="@+id/cardOrderItems"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
+                            android:paddingHorizontal="14dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="16dp">
 
-                            <TextView
-                                style="@style/TextAppearance.Sepi.Title"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/order_items_title"
-                                android:textSize="@dimen/text_md" />
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:background="@drawable/bg_clay_circle_dot"
+                                    android:contentDescription="@null" />
+
+                                <TextView
+                                    android:id="@+id/tvOrderItemsTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/order_items_title"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    tools:text="Produk Dipesan (3)" />
+
+                            </LinearLayout>
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rvCheckoutItems"
@@ -189,229 +275,504 @@
                                 android:layout_marginTop="8dp"
                                 android:nestedScrollingEnabled="false"
                                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                                tools:listitem="@layout/item_cart_card" />
+                                tools:listitem="@layout/item_checkout_product" />
 
                         </LinearLayout>
 
-                        <!-- 3. Opsi Pengiriman -->
+                        <!-- KARTU 3: OPSI PENGIRIMAN -->
                         <LinearLayout
+                            android:id="@+id/cardShippingMethod"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
-
-                            <TextView
-                                style="@style/TextAppearance.Sepi.Title"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/shipping_method_title"
-                                android:textSize="@dimen/text_md" />
-
-                            <RadioGroup
-                                android:id="@+id/rgShippingMethod"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp">
-
-                                <RadioButton
-                                    android:id="@+id/rbShippingReguler"
-                                    style="@style/TextAppearance.Sepi.Body"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:checked="true"
-                                    android:text="@string/shipping_reguler" />
-
-                                <RadioButton
-                                    android:id="@+id/rbShippingExpress"
-                                    style="@style/TextAppearance.Sepi.Body"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/shipping_express" />
-                            </RadioGroup>
-
-                        </LinearLayout>
-
-                        <!-- 4. Voucher Promo -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="@dimen/spacing_md">
-
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:contentDescription="@null"
-                                android:src="@drawable/ic_voucher"
-                                app:tint="@color/sepi_orange_600" />
-
-                            <TextView
-                                android:id="@+id/tvVoucherPreview"
-                                style="@style/TextAppearance.Sepi.Body"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_weight="1"
-                                android:text="@string/voucher_section_title" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btnSelectVoucher"
-                                style="@style/Widget.Sepi.Button.Secondary"
-                                android:layout_width="wrap_content"
-                                android:layout_height="36dp"
-                                android:paddingHorizontal="12dp"
-                                android:paddingVertical="0dp"
-                                android:text="@string/btn_select_voucher"
-                                android:textSize="12sp" />
-
-                        </LinearLayout>
-
-                        <!-- 5. Metode Pembayaran -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
-                            android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
-
-                            <TextView
-                                style="@style/TextAppearance.Sepi.Title"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/payment_method_title"
-                                android:textSize="@dimen/text_md" />
+                            android:paddingHorizontal="14dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="16dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:gravity="center_vertical">
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:background="@drawable/bg_clay_icon_circle_blue"
+                                    android:contentDescription="@null"
+                                    android:padding="6dp"
+                                    android:src="@drawable/ic_shipping"
+                                    app:tint="@color/sepi_brand_500" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/shipping_method_title"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <!-- Pilihan Pengiriman (RadioGroup + Price Overlay) -->
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp">
+
+                                <RadioGroup
+                                    android:id="@+id/rgShippingMethod"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <RadioButton
+                                        android:id="@+id/rbShippingReguler"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:minHeight="64dp"
+                                        android:background="@drawable/bg_shipping_card_selector"
+                                        android:button="@drawable/bg_radio_clay_selector"
+                                        android:checked="true"
+                                        android:fontFamily="@font/nunito"
+                                        android:lineSpacingExtra="2dp"
+                                        android:paddingStart="14dp"
+                                        android:paddingTop="12dp"
+                                        android:paddingBottom="12dp"
+                                        android:paddingEnd="84dp"
+                                        android:text="@string/shipping_reguler_card"
+                                        android:textColor="@color/sepi_ink"
+                                        android:textSize="13.5sp" />
+
+                                    <RadioButton
+                                        android:id="@+id/rbShippingExpress"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:minHeight="64dp"
+                                        android:background="@drawable/bg_shipping_card_selector"
+                                        android:button="@drawable/bg_radio_clay_selector"
+                                        android:checked="false"
+                                        android:fontFamily="@font/nunito"
+                                        android:lineSpacingExtra="2dp"
+                                        android:paddingStart="14dp"
+                                        android:paddingTop="12dp"
+                                        android:paddingBottom="12dp"
+                                        android:paddingEnd="84dp"
+                                        android:text="@string/shipping_express_card"
+                                        android:textColor="@color/sepi_ink"
+                                        android:textSize="13.5sp" />
+
+                                </RadioGroup>
+
+                                <!-- Price Tag Reguler -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="64dp"
+                                    android:layout_gravity="top|end"
+                                    android:layout_marginEnd="16dp"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:fontFamily="@font/nunito"
+                                    android:gravity="center_vertical"
+                                    android:text="Rp10.000"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <!-- Price Tag Express -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="64dp"
+                                    android:layout_gravity="top|end"
+                                    android:layout_marginTop="74dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:fontFamily="@font/nunito"
+                                    android:gravity="center_vertical"
+                                    android:text="Rp25.000"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <!-- KARTU 4: VOUCHER TERPASANG -->
+                        <LinearLayout
+                            android:id="@+id/cardVoucherContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/bg_clay_card"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="14dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="16dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:background="@drawable/bg_clay_icon_circle_blue"
+                                    android:contentDescription="@null"
+                                    android:padding="6dp"
+                                    android:src="@drawable/ic_ticket_voucher"
+                                    app:tint="@color/sepi_brand_500" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/voucher_installed_title"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
 
                                 <ImageView
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
                                     android:contentDescription="@null"
-                                    android:src="@drawable/ic_payments"
-                                    app:tint="@color/sepi_orange_600" />
+                                    android:src="@drawable/ic_chevron_right" />
 
+                            </LinearLayout>
+
+                            <!-- Inset Box Voucher Terpasang -->
+                            <LinearLayout
+                                android:id="@+id/boxVoucherContent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:background="@drawable/bg_clay_inner_tint"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="10dp">
+
+                                <!-- Voucher Pill Badge -->
                                 <TextView
-                                    style="@style/TextAppearance.Sepi.Body"
+                                    android:id="@+id/tvVoucherCode"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="8dp"
-                                    android:text="@string/payment_bca_va" />
+                                    android:background="@drawable/bg_clay_blue_pill"
+                                    android:fontFamily="@font/nunito"
+                                    android:paddingHorizontal="12dp"
+                                    android:paddingVertical="4dp"
+                                    android:textColor="@color/white"
+                                    android:textSize="11.5sp"
+                                    android:textStyle="bold"
+                                    tools:text="SEPIHEMAT" />
+
+                                <!-- Nilai Diskon / Preview -->
+                                <TextView
+                                    android:id="@+id/tvVoucherPreview"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
+                                    android:textColor="@color/sepi_success"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    tools:text="-Rp25.000" />
+
+                                <!-- Status / Tombol Pilih Voucher -->
+                                <TextView
+                                    android:id="@+id/btnSelectVoucher"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:fontFamily="@font/nunito"
+                                    android:padding="4dp"
+                                    android:text="@string/voucher_used"
+                                    android:textColor="@color/sepi_ink_soft"
+                                    android:textSize="12.5sp"
+                                    android:textStyle="bold"
+                                    tools:text="Tergunakan" />
+
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <!-- 6. Ringkasan Pembayaran -->
+                        <!-- KARTU 5: METODE PEMBAYARAN -->
                         <LinearLayout
+                            android:id="@+id/cardPaymentMethod"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/bg_glass_card"
+                            android:background="@drawable/bg_clay_card"
                             android:orientation="vertical"
-                            android:padding="@dimen/spacing_md">
-
-                            <TextView
-                                style="@style/TextAppearance.Sepi.Title"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/payment_summary_title"
-                                android:textSize="@dimen/text_md" />
+                            android:paddingHorizontal="14dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="16dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp">
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:background="@drawable/bg_clay_icon_circle_blue"
+                                    android:contentDescription="@null"
+                                    android:padding="6dp"
+                                    android:src="@drawable/ic_bank"
+                                    app:tint="@color/sepi_brand_500" />
 
                                 <TextView
-                                    style="@style/TextAppearance.Sepi.Caption"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/payment_method_title"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/nunito"
+                                    android:padding="4dp"
+                                    android:text="@string/payment_method_action_select"
+                                    android:textColor="@color/sepi_brand_500"
+                                    android:textSize="13.5sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <!-- Inset Box Metode Pembayaran -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:background="@drawable/bg_clay_inner_tint"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="12dp">
+
+                                <FrameLayout
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/bg_btn_copy_white"
+                                    android:padding="8dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:contentDescription="@null"
+                                        android:src="@drawable/ic_payments"
+                                        app:tint="@color/sepi_brand_500" />
+                                </FrameLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/nunito"
+                                        android:text="@string/payment_bca_va"
+                                        android:textColor="@color/sepi_ink"
+                                        android:textSize="13.5sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:background="@drawable/bg_badge_sandbox"
+                                        android:fontFamily="@font/nunito"
+                                        android:paddingHorizontal="7dp"
+                                        android:paddingVertical="1dp"
+                                        android:text="Sandbox"
+                                        android:textColor="@color/sepi_ink_soft"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_chevron_right" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- KARTU 6: RINGKASAN PEMBAYARAN -->
+                        <LinearLayout
+                            android:id="@+id/cardSummary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/bg_clay_card"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="14dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="18dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:background="@drawable/bg_clay_circle_dot"
+                                    android:contentDescription="@null" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/payment_summary_title"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <!-- Subtotal Produk -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvSubtotalLabel"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/subtotal" />
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/subtotal"
+                                    android:textColor="@color/sepi_ink_soft"
+                                    android:textSize="13sp" />
 
                                 <TextView
                                     android:id="@+id/tvSubtotal"
-                                    style="@style/TextAppearance.Sepi.Body"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    tools:text="Rp189.000" />
+                                    android:fontFamily="@font/nunito"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="13.5sp"
+                                    android:textStyle="bold"
+                                    tools:text="Rp506.000" />
                             </LinearLayout>
 
+                            <!-- Biaya Pengiriman -->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp">
+                                android:layout_marginTop="6dp"
+                                android:orientation="horizontal">
 
                                 <TextView
-                                    style="@style/TextAppearance.Sepi.Caption"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/shipping_cost" />
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/shipping_cost"
+                                    android:textColor="@color/sepi_ink_soft"
+                                    android:textSize="13sp" />
 
                                 <TextView
                                     android:id="@+id/tvShippingCost"
-                                    style="@style/TextAppearance.Sepi.Body"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/nunito"
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="13.5sp"
+                                    android:textStyle="bold"
                                     tools:text="Rp10.000" />
                             </LinearLayout>
 
+                            <!-- Diskon Voucher -->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp">
+                                android:layout_marginTop="6dp"
+                                android:orientation="horizontal">
 
                                 <TextView
-                                    style="@style/TextAppearance.Sepi.Caption"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/discount" />
+                                    android:fontFamily="@font/nunito"
+                                    android:text="@string/discount"
+                                    android:textColor="@color/sepi_ink_soft"
+                                    android:textSize="13sp" />
 
                                 <TextView
                                     android:id="@+id/tvDiscount"
-                                    style="@style/TextAppearance.Sepi.Body"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/nunito"
                                     android:textColor="@color/sepi_success"
-                                    tools:text="-Rp15.000" />
+                                    android:textSize="13.5sp"
+                                    android:textStyle="bold"
+                                    tools:text="-Rp25.000" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginVertical="8dp"
-                                android:background="@color/sepi_divider" />
+                                android:layout_marginTop="12dp"
+                                android:layout_marginBottom="12dp"
+                                android:background="#E2E8F0" />
 
+                            <!-- Total Pembayaran Dalam Ringkasan -->
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
 
                                 <TextView
-                                    style="@style/TextAppearance.Sepi.Title"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
                                     android:text="@string/total_payment"
-                                    android:textSize="@dimen/text_base" />
+                                    android:textColor="@color/sepi_ink"
+                                    android:textSize="15.5sp"
+                                    android:textStyle="bold" />
 
                                 <TextView
-                                    android:id="@+id/tvTotalPayment"
-                                    style="@style/TextAppearance.Sepi.Price"
+                                    android:id="@+id/tvSummaryTotal"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="@dimen/text_lg"
-                                    tools:text="Rp184.000" />
+                                    android:fontFamily="@font/nunito"
+                                    android:textColor="@color/sepi_price"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    tools:text="Rp491.000" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -424,22 +785,67 @@
 
     </LinearLayout>
 
-    <!-- Bottom Bar Kaca Buat Pesanan -->
+    <!-- Bottom Bar Clay Mengambang (05_checkout.png) -->
     <LinearLayout
         android:id="@+id/bottomBarOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/bg_glass_bar"
-        android:elevation="6dp"
-        android:padding="@dimen/spacing_md">
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_clay_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp">
 
+        <!-- Kolom Total Pembayaran -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:text="@string/total_payment"
+                android:textColor="@color/sepi_ink_soft"
+                android:textSize="11.5sp" />
+
+            <TextView
+                android:id="@+id/tvTotalPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/nunito"
+                android:textColor="@color/sepi_price"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Rp491.000" />
+
+        </LinearLayout>
+
+        <!-- Tombol Buat Pesanan Clay Pill -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPlaceOrder"
-            style="@style/Widget.Sepi.Button.Primary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_place_order" />
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_clay_btn_order"
+            android:fontFamily="@font/nunito"
+            android:paddingHorizontal="22dp"
+            android:text="Buat pesanan"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:icon="@drawable/ic_arrow_forward"
+            app:iconGravity="textEnd"
+            app:iconPadding="8dp"
+            app:iconSize="18dp"
+            app:iconTint="@color/white" />
 
     </LinearLayout>
 

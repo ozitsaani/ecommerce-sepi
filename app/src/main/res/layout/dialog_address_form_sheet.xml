@@ -3,13 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_glass_sheet">
+    android:background="@drawable/bg_clay_sheet">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/spacing_lg">
+
+        <!-- Handle Inset 4x40dp (PRD 10.7) -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_inset_pill" />
 
         <TextView
             android:id="@+id/tvFormTitle"
@@ -25,12 +33,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_md"
             android:hint="@string/address_label"
-            app:boxBackgroundColor="@color/sepi_glass_input"
+            app:boxBackgroundColor="@color/sepi_sky_100"
             app:boxCornerRadiusBottomEnd="@dimen/radius_input"
             app:boxCornerRadiusBottomStart="@dimen/radius_input"
             app:boxCornerRadiusTopEnd="@dimen/radius_input"
             app:boxCornerRadiusTopStart="@dimen/radius_input"
-            app:boxStrokeColor="@color/sepi_orange_600">
+            app:boxStrokeColor="@color/sepi_input_stroke">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etLabel"
@@ -48,12 +56,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_md"
             android:hint="@string/recipient_name"
-            app:boxBackgroundColor="@color/sepi_glass_input"
+            app:boxBackgroundColor="@color/sepi_sky_100"
             app:boxCornerRadiusBottomEnd="@dimen/radius_input"
             app:boxCornerRadiusBottomStart="@dimen/radius_input"
             app:boxCornerRadiusTopEnd="@dimen/radius_input"
             app:boxCornerRadiusTopStart="@dimen/radius_input"
-            app:boxStrokeColor="@color/sepi_orange_600">
+            app:boxStrokeColor="@color/sepi_input_stroke">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etRecipientName"
@@ -70,12 +78,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_md"
             android:hint="@string/phone_number"
-            app:boxBackgroundColor="@color/sepi_glass_input"
+            app:boxBackgroundColor="@color/sepi_sky_100"
             app:boxCornerRadiusBottomEnd="@dimen/radius_input"
             app:boxCornerRadiusBottomStart="@dimen/radius_input"
             app:boxCornerRadiusTopEnd="@dimen/radius_input"
             app:boxCornerRadiusTopStart="@dimen/radius_input"
-            app:boxStrokeColor="@color/sepi_orange_600">
+            app:boxStrokeColor="@color/sepi_input_stroke">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPhone"
@@ -85,25 +93,27 @@
                 android:textColor="@color/sepi_ink" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Alamat Jalan -->
+        <!-- Jalan / Alamat Lengkap -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_md"
             android:hint="@string/street_address"
-            app:boxBackgroundColor="@color/sepi_glass_input"
+            app:boxBackgroundColor="@color/sepi_sky_100"
             app:boxCornerRadiusBottomEnd="@dimen/radius_input"
             app:boxCornerRadiusBottomStart="@dimen/radius_input"
             app:boxCornerRadiusTopEnd="@dimen/radius_input"
             app:boxCornerRadiusTopStart="@dimen/radius_input"
-            app:boxStrokeColor="@color/sepi_orange_600">
+            app:boxStrokeColor="@color/sepi_input_stroke">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etStreet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPostalAddress"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:lines="2"
                 android:textColor="@color/sepi_ink" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,12 +124,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_md"
             android:hint="@string/district"
-            app:boxBackgroundColor="@color/sepi_glass_input"
+            app:boxBackgroundColor="@color/sepi_sky_100"
             app:boxCornerRadiusBottomEnd="@dimen/radius_input"
             app:boxCornerRadiusBottomStart="@dimen/radius_input"
             app:boxCornerRadiusTopEnd="@dimen/radius_input"
             app:boxCornerRadiusTopStart="@dimen/radius_input"
-            app:boxStrokeColor="@color/sepi_orange_600">
+            app:boxStrokeColor="@color/sepi_input_stroke">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDistrict"
@@ -129,7 +139,7 @@
                 android:textColor="@color/sepi_ink" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Kota (Terkunci Cirebon) & Kode Pos -->
+        <!-- Kota & Kode Pos -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -144,7 +154,7 @@
                 android:layout_weight="1"
                 android:enabled="false"
                 android:hint="@string/city_locked"
-                app:boxBackgroundColor="@color/sepi_glass_input"
+                app:boxBackgroundColor="@color/sepi_sky_100"
                 app:boxCornerRadiusBottomEnd="@dimen/radius_input"
                 app:boxCornerRadiusBottomStart="@dimen/radius_input"
                 app:boxCornerRadiusTopEnd="@dimen/radius_input"
@@ -165,12 +175,12 @@
                 android:layout_marginStart="6dp"
                 android:layout_weight="1"
                 android:hint="@string/postal_code"
-                app:boxBackgroundColor="@color/sepi_glass_input"
+                app:boxBackgroundColor="@color/sepi_sky_100"
                 app:boxCornerRadiusBottomEnd="@dimen/radius_input"
                 app:boxCornerRadiusBottomStart="@dimen/radius_input"
                 app:boxCornerRadiusTopEnd="@dimen/radius_input"
                 app:boxCornerRadiusTopStart="@dimen/radius_input"
-                app:boxStrokeColor="@color/sepi_orange_600">
+                app:boxStrokeColor="@color/sepi_input_stroke">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPostalCode"
@@ -190,8 +200,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_md"
             android:text="@string/set_as_default"
-            app:thumbTint="@color/sepi_orange_600"
-            app:trackTint="@color/sepi_peach_100" />
+            app:thumbTint="@color/sepi_brand_500"
+            app:trackTint="@color/sepi_sky_100" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveAddress"

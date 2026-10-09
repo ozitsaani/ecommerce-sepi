@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardProduct"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
-    app:cardBackgroundColor="@color/sepi_glass_fill"
-    app:cardCornerRadius="@dimen/radius_card"
-    app:cardElevation="@dimen/card_elevation">
+    android:background="@drawable/bg_clay_card">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:paddingHorizontal="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="18dp"
+        android:paddingEnd="15dp">
 
-        <!-- Gambar Produk 1:1 -->
+        <!-- 1. Gambar Produk Persegi 1:1 Membulat Halus -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivProduct"
             android:layout_width="0dp"
@@ -28,80 +29,100 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Sepi.Rounded16"
             tools:src="@drawable/ic_launcher_background" />
 
-        <!-- Ikon Hati Favorit Melayang -->
-        <ImageView
-            android:id="@+id/ivFavorite"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_margin="6dp"
-            android:background="@drawable/bg_glass_bar"
-            android:contentDescription="@string/menu_favorites"
-            android:padding="6dp"
-            android:src="@drawable/ic_favorite_border"
-            app:layout_constraintEnd_toEndOf="@+id/ivProduct"
-            app:layout_constraintTop_toTopOf="@+id/ivProduct" />
-
-        <!-- Nama Produk (Maks 2 Baris) -->
-        <TextView
-            android:id="@+id/tvProductName"
-            style="@style/TextAppearance.Sepi.Body"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textSize="@dimen/text_sm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivProduct"
-            tools:text="Earbuds Bluetooth TWS Noise Cancelling" />
-
-        <!-- Harga Utama -->
-        <TextView
-            android:id="@+id/tvPrice"
-            style="@style/TextAppearance.Sepi.Price"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvProductName"
-            tools:text="Rp189.000" />
-
-        <!-- Layout Harga Asli & Badge Diskon -->
+        <!-- 2. Badge Diskon Kuning di Pojok Kiri Atas Gambar (design/beranda.png) -->
         <LinearLayout
             android:id="@+id/layoutDiscount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPrice">
-
-            <TextView
-                android:id="@+id/tvOriginalPrice"
-                style="@style/TextAppearance.Sepi.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Rp299.000" />
+            app:layout_constraintStart_toStartOf="@+id/ivProduct"
+            app:layout_constraintTop_toTopOf="@+id/ivProduct">
 
             <TextView
                 android:id="@+id/tvDiscountBadge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:background="@drawable/bg_badge_discount"
-                android:paddingHorizontal="4dp"
-                android:paddingVertical="1dp"
-                android:textColor="@color/sepi_danger"
-                android:textSize="10sp"
+                android:background="@drawable/bg_badge_countdown_gold"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:textColor="@color/sepi_ink"
+                android:textSize="11sp"
                 android:textStyle="bold"
-                tools:text="37%" />
+                android:fontFamily="@font/nunito_extrabold"
+                tools:text="-22%" />
 
         </LinearLayout>
 
-        <!-- Rating Bintang & Jumlah Terjual -->
+        <!-- 3. Ikon Hati Favorit di Pojok Kanan Atas Gambar (design/beranda.png) -->
+        <FrameLayout
+            android:id="@+id/ivFavoriteContainer"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_clay_round"
+            app:layout_constraintEnd_toEndOf="@+id/ivProduct"
+            app:layout_constraintTop_toTopOf="@+id/ivProduct">
+
+            <ImageView
+                android:id="@+id/ivFavorite"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/menu_favorites"
+                android:src="@drawable/ic_favorite_border" />
+        </FrameLayout>
+
+        <!-- 4. Nama Produk (Maks 2 Baris, Nunito Bold) -->
+        <TextView
+            android:id="@+id/tvProductName"
+            style="@style/TextAppearance.Sepi.Body"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="1dp"
+            android:maxLines="2"
+            android:textColor="@color/sepi_ink"
+            android:textSize="13sp"
+            android:fontFamily="@font/nunito_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProduct"
+            tools:text="Power Bank 20.000 mAh Fast Charging" />
+
+        <!-- 5. Harga Diskon Utama (Merah Bold Tebal) -->
+        <TextView
+            android:id="@+id/tvPrice"
+            style="@style/TextAppearance.Sepi.Price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/sepi_price"
+            android:textSize="15sp"
+            android:fontFamily="@font/nunito_extrabold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+            tools:text="Rp215.000" />
+
+        <!-- 6. Harga Asli Dicoret (Abu-abu) -->
+        <TextView
+            android:id="@+id/tvOriginalPrice"
+            style="@style/TextAppearance.Sepi.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textColor="@color/sepi_ink_soft"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+            tools:text="Rp275.000" />
+
+        <!-- 7. Rating Bintang & Jumlah Terjual -->
         <LinearLayout
             android:id="@+id/layoutRating"
             android:layout_width="wrap_content"
@@ -110,32 +131,45 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutDiscount">
+            app:layout_constraintTop_toBottomOf="@+id/tvOriginalPrice">
 
             <ImageView
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_star" />
+                android:src="@drawable/ic_star"
+                app:tint="@color/sepi_star" />
 
             <TextView
                 android:id="@+id/tvRating"
                 style="@style/TextAppearance.Sepi.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:textStyle="bold"
+                android:layout_marginStart="3dp"
+                android:textColor="@color/sepi_ink"
+                android:textSize="11sp"
+                android:fontFamily="@font/nunito_bold"
                 tools:text="4.8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:text="•"
+                android:textColor="@color/sepi_ink_soft"
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/tvSoldCount"
                 style="@style/TextAppearance.Sepi.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                tools:text="2.4k terjual" />
+                android:textColor="@color/sepi_ink_soft"
+                android:textSize="11sp"
+                android:fontFamily="@font/nunito_semibold"
+                tools:text="Terjual 1,2 rb" />
 
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</FrameLayout>

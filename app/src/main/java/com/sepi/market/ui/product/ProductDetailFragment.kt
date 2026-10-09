@@ -266,14 +266,46 @@ class ProductDetailFragment : Fragment() {
                     isCheckable = true
                     id = index
                     isChecked = index == 0
+
+                    // Gaya custom: hilangkan gaya Material default
+                    setChipBackgroundColorResource(android.R.color.transparent)
+                    chipStrokeWidth = 0f
+                    isCheckedIconVisible = false
+                    chipStartPadding = (16 * resources.displayMetrics.density)
+                    chipEndPadding = (16 * resources.displayMetrics.density)
+                    textSize = 14f
+                    typeface = resources.getFont(R.font.nunito_semibold)
+
+                    // Terapkan background clay chip custom
+                    if (index == 0) {
+                        setBackgroundResource(R.drawable.bg_clay_blue_chip)
+                        setTextColor(requireContext().getColor(R.color.white))
+                    } else {
+                        setBackgroundResource(R.drawable.bg_clay_chip)
+                        setTextColor(requireContext().getColor(R.color.sepi_ink))
+                    }
+
+                    minimumHeight = (40 * resources.displayMetrics.density).toInt()
                 }
                 binding.chipGroupDetailVariants.addView(chip)
             }
 
-            binding.chipGroupDetailVariants.setOnCheckedStateChangeListener { _, checkedIds ->
+            binding.chipGroupDetailVariants.setOnCheckedStateChangeListener { group, checkedIds ->
                 val selectedIdx = checkedIds.firstOrNull() ?: -1
                 val variant = if (selectedIdx in variants.indices) variants[selectedIdx] else null
                 viewModel.selectedVariant.value = variant
+
+                // Update background setiap chip berdasarkan state terpilih
+                for (i in 0 until group.childCount) {
+                    val c = group.getChildAt(i) as? Chip ?: continue
+                    if (c.isChecked) {
+                        c.setBackgroundResource(R.drawable.bg_clay_blue_chip)
+                        c.setTextColor(requireContext().getColor(R.color.white))
+                    } else {
+                        c.setBackgroundResource(R.drawable.bg_clay_chip)
+                        c.setTextColor(requireContext().getColor(R.color.sepi_ink))
+                    }
+                }
             }
         }
     }

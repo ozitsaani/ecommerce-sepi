@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.sepi.market.databinding.DialogFilterSheetBinding
-import com.sepi.market.ui.common.GlassBottomSheet
+import com.sepi.market.ui.common.ClayBottomSheet
 
 /**
- * Bottom Sheet Kaca untuk filter rentang harga dan rating minimal produk (PRD Bagian 9.3 Screen 5).
+ * Bottom Sheet Clay untuk filter rentang harga dan rating minimal produk (PRD Bagian 9.3 Screen 5).
  */
 class FilterSheet(
     private val initialMinPrice: Long?,
@@ -16,7 +16,7 @@ class FilterSheet(
     private val initialMinRating4: Boolean,
     private val onApply: (minPrice: Long?, maxPrice: Long?, minRating4: Boolean) -> Unit,
     private val onReset: () -> Unit
-) : GlassBottomSheet() {
+) : ClayBottomSheet() {
 
     private var _binding: DialogFilterSheetBinding? = null
     private val binding get() = _binding!!

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardCartItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    app:cardBackgroundColor="@color/sepi_glass_fill"
-    app:cardCornerRadius="@dimen/radius_card"
-    app:cardElevation="@dimen/card_elevation">
+    android:background="@drawable/bg_clay_card">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/spacing_md">
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_md"
+        android:paddingBottom="20dp">
 
         <!-- Checkbox Pilih Item -->
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/cbSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:buttonTint="@color/sepi_orange_600" />
+            app:buttonTint="@color/sepi_brand_500" />
 
         <!-- Gambar Produk -->
         <com.google.android.material.imageview.ShapeableImageView
@@ -103,14 +103,15 @@
                     android:textSize="@dimen/text_base"
                     tools:text="Rp189.000" />
 
-                <!-- Stepper Jumlah -->
+                <!-- Stepper Jumlah Clay Inset -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_glass_input"
+                    android:background="@drawable/bg_inset_input"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="2dp">
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="2dp">
 
                     <ImageView
                         android:id="@+id/btnMinus"
@@ -147,4 +148,4 @@
         </LinearLayout>
 
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</FrameLayout>

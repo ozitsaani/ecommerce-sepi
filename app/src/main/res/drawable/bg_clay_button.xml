@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@color/sepi_brand_shade" />
+                    <corners android:radius="20dp" />
+                </shape>
+            </item>
+            <item
+                android:bottom="2dp"
+                android:right="1dp"
+                android:top="3dp">
+                <shape>
+                    <gradient
+                        android:angle="315"
+                        android:endColor="@color/sepi_brand_500"
+                        android:startColor="@color/sepi_brand_400"
+                        android:type="linear" />
+                    <corners android:radius="20dp" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="@color/sepi_clay_rim" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Normal state -->
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@color/sepi_brand_shade" />
+                    <corners android:radius="20dp" />
+                </shape>
+            </item>
+            <item
+                android:bottom="5dp"
+                android:right="3dp">
+                <shape>
+                    <gradient
+                        android:angle="315"
+                        android:endColor="@color/sepi_brand_500"
+                        android:startColor="@color/sepi_brand_400"
+                        android:type="linear" />
+                    <corners android:radius="20dp" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="@color/sepi_clay_rim" />
+                </shape>
+            </item>
+            <!-- Highlight gloss on top rim -->
+            <item
+                android:bottom="30dp"
+                android:left="8dp"
+                android:right="11dp"
+                android:top="4dp">
+                <shape>
+                    <solid android:color="#40FFFFFF" />
+                    <corners android:radius="14dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

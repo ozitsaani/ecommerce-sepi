@@ -5,34 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_app_gradient"
+    android:background="@color/sepi_sky_50"
     tools:context="com.sepi.market.ui.main.MainActivity">
 
-    <!-- 1. Blobs Latar Belakang Diam (PRD Bagian 10.3) -->
-    <View
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_gravity="top|start"
-        android:layout_marginStart="-80dp"
-        android:layout_marginTop="-80dp"
-        android:background="@drawable/bg_blob_orange" />
-
-    <View
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:layout_gravity="center_vertical|end"
-        android:layout_marginEnd="-60dp"
-        android:background="@drawable/bg_blob_amber" />
-
-    <View
-        android:layout_width="260dp"
-        android:layout_height="260dp"
-        android:layout_gravity="bottom|start"
-        android:layout_marginStart="-80dp"
-        android:layout_marginBottom="-60dp"
-        android:background="@drawable/bg_blob_orange" />
-
-    <!-- 2. NavHostFragment Transparan -->
+    <!-- 1. NavHostFragment Transparan -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navHostFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -41,38 +17,35 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
-    <!-- 3. Bottom Navigation Kaca Melayang (PRD Bagian 10.5) -->
+    <!-- 2. Bottom Navigation Clay Melayang 72dp (DESIGN_CLAY.md) -->
     <FrameLayout
         android:id="@+id/bottomNavContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="72dp"
         android:layout_gravity="bottom"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_glass_bar"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:elevation="4dp"
-        android:padding="0dp">
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_clay_bar">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNav"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="64dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="8dp"
             android:background="@color/transparent"
-            android:clipChildren="false"
-            android:clipToPadding="false"
+            android:minHeight="0dp"
             app:elevation="0dp"
-            app:itemActiveIndicatorStyle="@style/Widget.Sepi.BottomNav.ActiveIndicator"
-            app:itemIconSize="24dp"
-            app:itemIconTint="@color/bottom_nav_color_selector"
-            app:itemPaddingBottom="8dp"
-            app:itemPaddingTop="8dp"
-            app:itemRippleColor="@color/sepi_glass_nav_indicator"
-            app:itemTextAppearanceActive="@style/TextAppearance.Sepi.BottomNav"
-            app:itemTextAppearanceInactive="@style/TextAppearance.Sepi.BottomNav"
-            app:itemTextColor="@color/bottom_nav_color_selector"
+            app:itemActiveIndicatorStyle="@null"
+            app:itemBackground="@drawable/bg_bottom_nav_item_selector"
+            app:itemIconSize="20dp"
+            app:itemIconTint="@color/bottom_nav_icon_color_selector"
+            app:itemPaddingBottom="4dp"
+            app:itemPaddingTop="4dp"
+            app:itemRippleColor="@color/transparent"
+            app:itemTextAppearanceActive="@style/TextAppearance.Sepi.BottomNav.Active"
+            app:itemTextAppearanceInactive="@style/TextAppearance.Sepi.BottomNav.Inactive"
+            app:itemTextColor="@color/bottom_nav_text_color_selector"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_nav_menu" />
 

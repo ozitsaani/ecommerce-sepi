@@ -3,9 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_glass_sheet"
+    android:background="@drawable/bg_clay_sheet"
     android:orientation="vertical"
     android:padding="@dimen/spacing_lg">
+
+    <!-- Handle Inset 4x40dp (PRD 10.7) -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_inset_pill" />
 
     <TextView
         style="@style/TextAppearance.Sepi.Title"
@@ -19,12 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_md"
         android:hint="@string/full_name"
-        app:boxBackgroundColor="@color/sepi_glass_input"
+        app:boxBackgroundColor="@color/sepi_sky_100"
         app:boxCornerRadiusBottomEnd="@dimen/radius_input"
         app:boxCornerRadiusBottomStart="@dimen/radius_input"
         app:boxCornerRadiusTopEnd="@dimen/radius_input"
         app:boxCornerRadiusTopStart="@dimen/radius_input"
-        app:boxStrokeColor="@color/sepi_orange_600">
+        app:boxStrokeColor="@color/sepi_input_stroke">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEditFullName"
@@ -40,12 +48,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_md"
         android:hint="@string/phone_number"
-        app:boxBackgroundColor="@color/sepi_glass_input"
+        app:boxBackgroundColor="@color/sepi_sky_100"
         app:boxCornerRadiusBottomEnd="@dimen/radius_input"
         app:boxCornerRadiusBottomStart="@dimen/radius_input"
         app:boxCornerRadiusTopEnd="@dimen/radius_input"
         app:boxCornerRadiusTopStart="@dimen/radius_input"
-        app:boxStrokeColor="@color/sepi_orange_600">
+        app:boxStrokeColor="@color/sepi_input_stroke">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEditPhone"

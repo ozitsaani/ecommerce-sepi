@@ -13,17 +13,17 @@ import com.sepi.market.core.showIf
 import com.sepi.market.data.remote.dto.ProductDetailDto
 import com.sepi.market.data.remote.dto.VariantDto
 import com.sepi.market.databinding.DialogVariantSheetBinding
-import com.sepi.market.ui.common.GlassBottomSheet
+import com.sepi.market.ui.common.ClayBottomSheet
 import kotlin.math.min
 
 /**
- * Bottom Sheet Kaca untuk memilih varian dan jumlah sebelum menambah ke keranjang/beli sekarang (PRD Bagian 9.3 Screen 6).
+ * Bottom Sheet Clay untuk memilih varian dan jumlah sebelum menambah ke keranjang/beli sekarang (PRD Bagian 9.3 Screen 6).
  */
 class VariantSheet(
     private val product: ProductDetailDto,
     private val buyNow: Boolean,
     private val onConfirm: (selectedVariant: VariantDto?, quantity: Int, buyNow: Boolean) -> Unit
-) : GlassBottomSheet() {
+) : ClayBottomSheet() {
 
     private var _binding: DialogVariantSheetBinding? = null
     private val binding get() = _binding!!

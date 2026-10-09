@@ -183,7 +183,7 @@ class OrderDetailFragment : Fragment() {
 
         // 1. Highlight Stepper Steps
         val context = requireContext()
-        val activeColor = ContextCompat.getColor(context, R.color.sepi_orange_700)
+        val activeColor = ContextCompat.getColor(context, R.color.sepi_brand_500)
         val inactiveColor = ContextCompat.getColor(context, R.color.sepi_ink_soft)
 
         binding.stepPaid.setTextColor(if (status in listOf("PAID", "PACKED", "SHIPPED", "DELIVERED")) activeColor else inactiveColor)

@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -24,14 +27,13 @@ import com.sepi.market.core.gone
 import com.sepi.market.core.showIf
 import com.sepi.market.core.visible
 import com.sepi.market.databinding.FragmentHomeBinding
-import com.sepi.market.ui.category.CategoryAdapter
 import com.sepi.market.ui.product.ProductAdapter
 import com.sepi.market.ui.profile.VoucherAdapter
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
- * Fragment Beranda aplikasi Sepi (PRD Bagian 9.3 Screen 3).
+ * Fragment Beranda aplikasi Sepi (PRD Bagian 9.3 Screen 3 & DESIGN_CLAY.md).
  */
 class HomeFragment : Fragment() {
 
@@ -43,8 +45,8 @@ class HomeFragment : Fragment() {
     }
 
     private lateinit var voucherAdapter: VoucherAdapter
-    private lateinit var categoryAdapter: CategoryAdapter
-    private lateinit var flashSaleAdapter: ProductAdapter
+    private lateinit var categoryAdapter: HomeCategoryAdapter
+    private lateinit var flashSaleAdapter: FlashSaleAdapter
     private lateinit var recommendationAdapter: ProductAdapter
 
     override fun onCreateView(
@@ -59,10 +61,38 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        applyWindowInsets()
         setupAdapters()
         setupListeners()
         observeViewModel()
         startFlashSaleCountdown()
+    }
+
+    private fun applyWindowInsets() {
+        val window = requireActivity().window
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = false
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val statusBarInsets = insets.getInsets(WindowInsetsCompat.Type.statusBars())
+            val navBarInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+
+            val extraTop = resources.getDimensionPixelSize(R.dimen.spacing_md) // 12dp
+            binding.headerBlue.setPadding(
+                binding.headerBlue.paddingLeft,
+                statusBarInsets.top + extraTop,
+                binding.headerBlue.paddingRight,
+                binding.headerBlue.paddingBottom
+            )
+
+            val bottomNavHeight = resources.getDimensionPixelSize(R.dimen.bottom_nav_total_height)
+            binding.contentScroll.setPadding(
+                binding.contentScroll.paddingLeft,
+                binding.contentScroll.paddingTop,
+                binding.contentScroll.paddingRight,
+                bottomNavHeight + navBarInsets.bottom
+            )
+            insets
+        }
     }
 
     private fun setupAdapters() {
@@ -80,7 +110,7 @@ class HomeFragment : Fragment() {
         }
         binding.rvVouchers.adapter = voucherAdapter
 
-        categoryAdapter = CategoryAdapter { category ->
+        categoryAdapter = HomeCategoryAdapter { category ->
             findNavController().navigate(
                 R.id.productListFragment,
                 Bundle().apply {
@@ -91,17 +121,12 @@ class HomeFragment : Fragment() {
         }
         binding.rvCategories.adapter = categoryAdapter
 
-        flashSaleAdapter = ProductAdapter(
+        flashSaleAdapter = FlashSaleAdapter(
             onProductClick = { product ->
                 findNavController().navigate(
                     R.id.productDetailFragment,
                     Bundle().apply { putString("productId", product.id) }
                 )
-            },
-            onFavoriteClick = { product ->
-                lifecycleScope.launch {
-                    appContainer.favoriteRepository.toggleFavorite(product.id)
-                }
             }
         )
         binding.rvFlashSale.adapter = flashSaleAdapter
@@ -146,6 +171,13 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.categoryFragment)
         }
 
+        binding.tvSeeAllRecsHeader.setOnClickListener {
+            findNavController().navigate(
+                R.id.productListFragment,
+                Bundle().apply { putString("title", getString(R.string.section_recommendations)) }
+            )
+        }
+
         binding.tvSeeAllRecommendations.setOnClickListener {
             findNavController().navigate(
                 R.id.productListFragment,
@@ -176,7 +208,6 @@ class HomeFragment : Fragment() {
                 }
                 launch {
                     appContainer.favoriteRepository.favoriteIds.collect { favIds ->
-                        flashSaleAdapter.setFavoriteIds(favIds)
                         recommendationAdapter.setFavoriteIds(favIds)
                     }
                 }

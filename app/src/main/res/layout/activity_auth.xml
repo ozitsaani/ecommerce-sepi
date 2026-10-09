@@ -4,32 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_app_gradient"
+    android:background="@color/sepi_sky_50"
     tools:context="com.sepi.market.ui.auth.AuthActivity">
 
-    <!-- Blobs latar belakang -->
+    <!-- Gelembung Dekoratif Clay (PRD 10.3 & DESIGN_CLAY.md) -->
     <View
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
         android:layout_gravity="top|start"
-        android:layout_marginStart="-80dp"
-        android:layout_marginTop="-80dp"
-        android:background="@drawable/bg_blob_orange" />
+        android:layout_marginStart="-90dp"
+        android:layout_marginTop="-90dp"
+        android:background="@drawable/bg_clay_bubble_sky" />
+
+    <View
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="-80dp"
+        android:background="@drawable/bg_clay_bubble_deep" />
 
     <View
         android:layout_width="240dp"
         android:layout_height="240dp"
-        android:layout_gravity="center_vertical|end"
-        android:layout_marginEnd="-60dp"
-        android:background="@drawable/bg_blob_amber" />
-
-    <View
-        android:layout_width="260dp"
-        android:layout_height="260dp"
         android:layout_gravity="bottom|start"
         android:layout_marginStart="-80dp"
         android:layout_marginBottom="-80dp"
-        android:background="@drawable/bg_blob_orange" />
+        android:background="@drawable/bg_clay_bubble_lavender" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -77,16 +77,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
 
-            <!-- Kartu Kaca Form Auth -->
-            <androidx.cardview.widget.CardView
+            <!-- Kartu Clay Form Auth -->
+            <FrameLayout
                 android:id="@+id/cvForm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="32dp"
-                app:cardBackgroundColor="@color/sepi_glass_fill"
-                app:cardCornerRadius="@dimen/radius_card"
-                app:cardElevation="@dimen/card_elevation"
+                android:background="@drawable/bg_clay_card"
+                android:elevation="0dp"
+                android:paddingBottom="21dp"
+                android:paddingEnd="19dp"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -95,20 +98,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/spacing_lg">
+                    android:orientation="vertical">
 
                     <!-- Tab Toggle (Masuk | Daftar) -->
                     <com.google.android.material.tabs.TabLayout
                         android:id="@+id/tabAuthMode"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="44dp"
                         android:layout_marginBottom="@dimen/spacing_lg"
-                        android:background="@drawable/bg_glass_input"
-                        app:tabIndicatorColor="@color/sepi_orange_600"
+                        android:background="@drawable/bg_inset_input"
+                        app:tabIndicatorColor="@color/sepi_brand_500"
                         app:tabIndicatorHeight="3dp"
                         app:tabRippleColor="@null"
-                        app:tabSelectedTextColor="@color/sepi_orange_700"
+                        app:tabSelectedTextColor="@color/sepi_brand_500"
                         app:tabTextColor="@color/sepi_ink_soft">
 
                         <com.google.android.material.tabs.TabItem
@@ -132,12 +134,12 @@
                         android:layout_marginBottom="@dimen/spacing_md"
                         android:hint="@string/full_name"
                         android:visibility="gone"
-                        app:boxBackgroundColor="@color/sepi_glass_input"
+                        app:boxBackgroundColor="@color/sepi_sky_100"
                         app:boxCornerRadiusBottomEnd="@dimen/radius_input"
                         app:boxCornerRadiusBottomStart="@dimen/radius_input"
                         app:boxCornerRadiusTopEnd="@dimen/radius_input"
                         app:boxCornerRadiusTopStart="@dimen/radius_input"
-                        app:boxStrokeColor="@color/sepi_orange_600">
+                        app:boxStrokeColor="@color/sepi_input_stroke">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etFullName"
@@ -156,12 +158,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/spacing_md"
                         android:hint="@string/email"
-                        app:boxBackgroundColor="@color/sepi_glass_input"
+                        app:boxBackgroundColor="@color/sepi_sky_100"
                         app:boxCornerRadiusBottomEnd="@dimen/radius_input"
                         app:boxCornerRadiusBottomStart="@dimen/radius_input"
                         app:boxCornerRadiusTopEnd="@dimen/radius_input"
                         app:boxCornerRadiusTopStart="@dimen/radius_input"
-                        app:boxStrokeColor="@color/sepi_orange_600">
+                        app:boxStrokeColor="@color/sepi_input_stroke">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etEmail"
@@ -180,12 +182,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/spacing_md"
                         android:hint="@string/password"
-                        app:boxBackgroundColor="@color/sepi_glass_input"
+                        app:boxBackgroundColor="@color/sepi_sky_100"
                         app:boxCornerRadiusBottomEnd="@dimen/radius_input"
                         app:boxCornerRadiusBottomStart="@dimen/radius_input"
                         app:boxCornerRadiusTopEnd="@dimen/radius_input"
                         app:boxCornerRadiusTopStart="@dimen/radius_input"
-                        app:boxStrokeColor="@color/sepi_orange_600"
+                        app:boxStrokeColor="@color/sepi_input_stroke"
                         app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -206,12 +208,12 @@
                         android:layout_marginBottom="@dimen/spacing_md"
                         android:hint="@string/confirm_password"
                         android:visibility="gone"
-                        app:boxBackgroundColor="@color/sepi_glass_input"
+                        app:boxBackgroundColor="@color/sepi_sky_100"
                         app:boxCornerRadiusBottomEnd="@dimen/radius_input"
                         app:boxCornerRadiusBottomStart="@dimen/radius_input"
                         app:boxCornerRadiusTopEnd="@dimen/radius_input"
                         app:boxCornerRadiusTopStart="@dimen/radius_input"
-                        app:boxStrokeColor="@color/sepi_orange_600"
+                        app:boxStrokeColor="@color/sepi_input_stroke"
                         app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -258,7 +260,7 @@
                     </FrameLayout>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

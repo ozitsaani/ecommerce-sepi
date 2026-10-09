@@ -28,19 +28,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="320dp"
-                android:background="@drawable/bg_glass_card" />
+                android:background="@drawable/bg_clay_card" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/bg_glass_card" />
+                android:background="@drawable/bg_clay_card" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/bg_glass_card" />
+                android:background="@drawable/bg_clay_card" />
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
@@ -57,21 +57,55 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Gambar Produk Lebar Penuh -->
-            <ImageView
-                android:id="@+id/ivProductImage"
+            <!-- Foto Produk di dalam Kartu Clay Putih (sesuai 03_detail_produk.png) -->
+            <LinearLayout
+                android:id="@+id/photoCardContainer"
                 android:layout_width="match_parent"
-                android:layout_height="360dp"
-                android:scaleType="centerCrop"
-                tools:src="@drawable/ic_launcher_background" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_clay_card"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-            <!-- Informasi Utama Produk -->
+                <!-- Bingkai inset foto 1:1 -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_inset_photo">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/ivProductImage"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@drawable/ic_launcher_background" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- Informasi Utama Produk (Kartu Clay Putih) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_glass_card"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_clay_card"
                 android:orientation="vertical"
-                android:padding="@dimen/spacing_base">
+                android:paddingStart="@dimen/spacing_base"
+                android:paddingTop="@dimen/spacing_base"
+                android:paddingEnd="19dp"
+                android:paddingBottom="21dp">
 
                 <!-- Price Row -->
                 <LinearLayout
@@ -101,13 +135,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
-                        android:background="@drawable/bg_badge_discount"
-                        android:paddingHorizontal="6dp"
-                        android:paddingVertical="2dp"
-                        android:textColor="@color/sepi_danger"
+                        android:background="@drawable/bg_badge_countdown_gold"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"
+                        android:textColor="@color/sepi_ink"
                         android:textSize="12sp"
                         android:textStyle="bold"
-                        tools:text="37%" />
+                        tools:text="-25%" />
                 </LinearLayout>
 
                 <TextView
@@ -131,7 +165,8 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:contentDescription="@null"
-                        android:src="@drawable/ic_star" />
+                        android:src="@drawable/ic_star"
+                        app:tint="@color/sepi_star" />
 
                     <TextView
                         android:id="@+id/tvRating"
@@ -160,7 +195,7 @@
                         tools:text="Stok: 24" />
                 </LinearLayout>
 
-                <!-- Toko Row -->
+                <!-- Toko Row (tanpa tombol Ikuti, tanpa badge verified) -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -173,7 +208,7 @@
                         android:layout_height="18dp"
                         android:contentDescription="@null"
                         android:src="@drawable/ic_location"
-                        app:tint="@color/sepi_orange_600" />
+                        app:tint="@color/sepi_brand_500" />
 
                     <TextView
                         android:id="@+id/tvShopInfo"
@@ -192,10 +227,14 @@
                 android:id="@+id/layoutVariants"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/bg_glass_card"
+                android:background="@drawable/bg_clay_card"
                 android:orientation="vertical"
-                android:padding="@dimen/spacing_base">
+                android:paddingStart="@dimen/spacing_base"
+                android:paddingTop="@dimen/spacing_base"
+                android:paddingEnd="19dp"
+                android:paddingBottom="21dp">
 
                 <TextView
                     android:id="@+id/tvVariantTitle"
@@ -218,10 +257,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/bg_glass_card"
+                android:background="@drawable/bg_clay_card"
                 android:orientation="vertical"
-                android:padding="@dimen/spacing_base">
+                android:paddingStart="@dimen/spacing_base"
+                android:paddingTop="@dimen/spacing_base"
+                android:paddingEnd="19dp"
+                android:paddingBottom="21dp">
 
                 <TextView
                     style="@style/TextAppearance.Sepi.Title"
@@ -248,7 +291,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="@string/see_more"
-                    android:textColor="@color/sepi_orange_700"
+                    android:textColor="@color/sepi_text_accent"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -257,10 +300,14 @@
                 android:id="@+id/layoutReviews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/bg_glass_card"
+                android:background="@drawable/bg_clay_card"
                 android:orientation="vertical"
-                android:padding="@dimen/spacing_base">
+                android:paddingStart="@dimen/spacing_base"
+                android:paddingTop="@dimen/spacing_base"
+                android:paddingEnd="19dp"
+                android:paddingBottom="21dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -282,7 +329,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/all_reviews"
-                        android:textColor="@color/sepi_orange_700"
+                        android:textColor="@color/sepi_text_accent"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -299,20 +346,22 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Top Floating Header Bar Kaca -->
+    <!-- Tombol Overlay: Kembali di kiri, Hati dan Keranjang di kanan (44dp, posisi di bawah status bar + 8dp) -->
     <LinearLayout
+        android:id="@+id/topButtonOverlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:padding="@dimen/spacing_sm">
+        android:paddingHorizontal="12dp"
+        android:paddingTop="8dp">
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_glass_bar"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_clay_round"
             android:contentDescription="@string/cancel"
-            android:padding="8dp"
+            android:padding="10dp"
             android:src="@drawable/ic_arrow_back"
             app:tint="@color/sepi_ink" />
 
@@ -321,40 +370,42 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <!-- Ikon Favorit Hati -->
+        <!-- Ikon Favorit Hati (Bulat clay) -->
         <ImageView
             android:id="@+id/btnFavorite"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_glass_bar"
+            android:background="@drawable/bg_clay_round"
             android:contentDescription="@string/menu_favorites"
-            android:padding="8dp"
-            android:src="@drawable/ic_favorite_border" />
+            android:padding="10dp"
+            android:src="@drawable/ic_favorite_border"
+            app:tint="@color/sepi_heart" />
 
-        <!-- Ikon Keranjang dengan Badge -->
+        <!-- Ikon Keranjang dengan Badge (Bulat clay) -->
         <FrameLayout
             android:id="@+id/btnCartContainer"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_glass_bar"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_clay_round"
             android:clickable="true"
             android:focusable="true">
 
             <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/cart_title"
                 android:src="@drawable/ic_cart"
-                app:tint="@color/sepi_orange_600" />
+                app:tint="@color/sepi_brand_500" />
 
             <TextView
                 android:id="@+id/tvCartBadge"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_gravity="top|end"
-                android:background="@drawable/bg_badge_discount"
+                android:background="@drawable/bg_cart_badge"
+                android:fontFamily="@font/nunito_extrabold"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="10sp"
@@ -366,16 +417,21 @@
 
     </LinearLayout>
 
-    <!-- Bottom Bar Kaca Melayang (Tombol Aksi Beli / Tambah Keranjang) -->
+    <!-- Bottom Bar Clay Melayang (Tombol Aksi Beli / Tambah Keranjang) -->
     <LinearLayout
         android:id="@+id/bottomBarAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/bg_glass_bar"
-        android:elevation="6dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_clay_bar"
+        android:elevation="0dp"
         android:orientation="horizontal"
-        android:padding="@dimen/spacing_md">
+        android:paddingStart="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_md"
+        android:paddingEnd="15dp"
+        android:paddingBottom="19dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddToCart"

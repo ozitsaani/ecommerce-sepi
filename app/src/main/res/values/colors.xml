@@ -1,30 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Brand colors -->
-    <color name="sepi_orange_400">#FB923C</color>
-    <color name="sepi_orange_500">#F97316</color>
-    <color name="sepi_orange_600">#EA580C</color>
-    <color name="sepi_orange_700">#C2410C</color>
+    <!-- Brand colors (Claymorphism Cobalt Blue) -->
+    <color name="sepi_brand_500">#2358DD</color>
+    <color name="sepi_brand_400">#2E69EC</color>
+    <color name="sepi_brand_shade">#1E40AF</color>
+
+    <!-- Accent & Highlights -->
+    <color name="sepi_text_accent">#1D4ED8</color>
+    <color name="sepi_price">#BE3A1C</color>
+    <color name="sepi_heart">#D9442B</color>
+    <color name="sepi_icon_active">#2563EB</color>
+    <color name="sepi_star">#D97706</color>
+
+    <!-- Flash Sale Amber/Yellow -->
     <color name="sepi_amber_400">#FBBF24</color>
+    <color name="sepi_amber_300">#FCD34D</color>
     <color name="sepi_amber_600">#D97706</color>
-    <color name="sepi_input_stroke">#D47953</color>
-    <color name="sepi_peach_50">#FFF7ED</color>
-    <color name="sepi_peach_100">#FFEDD5</color>
-    <color name="sepi_ink">#431407</color>
-    <color name="sepi_ink_soft">#7C5A47</color>
 
-    <!-- Glassmorphism fill & stroke -->
-    <color name="sepi_glass_fill">#CCFFFFFF</color>
-    <color name="sepi_glass_bar">#E6FFFFFF</color>
-    <color name="sepi_glass_sheet">#F2FFFFFF</color>
-    <color name="sepi_glass_stroke">#26EA580C</color>
-    <color name="sepi_glass_input">#B3FFFFFF</color>
-    <color name="sepi_glass_nav_indicator">#1AEA580C</color>
+    <!-- Backgrounds & Insets -->
+    <color name="sepi_sky_50">#D3E5FB</color>
+    <color name="sepi_sky_100">#C3DAF7</color>
+    <color name="sepi_inset_top">#BFD6F5</color>
+    <color name="sepi_input_stroke">#4A73B8</color>
 
-    <!-- State colors -->
-    <color name="sepi_success">#15803D</color>
+    <!-- Clay Surface Tokens -->
+    <color name="sepi_clay_card">#FAFCFF</color>
+    <color name="sepi_clay_hi">#FFFFFF</color>
+    <color name="sepi_clay_lo">#EEF5FF</color>
+    <color name="sepi_clay_rim">#B3FFFFFF</color>
+    <color name="sepi_clay_shade">#8FB0E0</color>
+
+    <!-- Pastel Category & Avatar Tiles -->
+    <color name="sepi_tile_sky">#9EC8FF</color>
+    <color name="sepi_tile_butter">#FFE27F</color>
+    <color name="sepi_tile_lavender">#C9BFF8</color>
+    <color name="sepi_tile_blush">#FFBDBD</color>
+
+    <!-- Typography (Navy Dark Ink) -->
+    <color name="sepi_ink">#0F2447</color>
+    <color name="sepi_ink_soft">#435878</color>
+
+    <!-- Semantic States -->
+    <color name="sepi_success">#166534</color>
+    <color name="sepi_success_badge">#15803D</color>
     <color name="sepi_success_bg">#DCFCE7</color>
-    <color name="sepi_danger">#DC2626</color>
+    <color name="sepi_warning">#B45309</color>
+    <color name="sepi_warning_bg">#FEF3C7</color>
+    <color name="sepi_danger">#C81E1E</color>
     <color name="sepi_danger_bg">#FEE2E2</color>
 
     <!-- Order status badges (Text & Background) -->
@@ -46,6 +68,5 @@
     <!-- Common utilities -->
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00000000</color>
-    <color name="sepi_divider">#1A431407</color>
-    <color name="sepi_star">#D97706</color>
+    <color name="sepi_divider">#1A0F2447</color>
 </resources>

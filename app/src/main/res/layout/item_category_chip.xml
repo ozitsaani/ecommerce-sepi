@@ -5,36 +5,44 @@
     android:id="@+id/cardCategory"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp"
+    android:layout_marginHorizontal="6dp"
+    android:layout_marginVertical="4dp"
     android:clickable="true"
     android:focusable="true"
     android:gravity="center"
     android:orientation="vertical">
 
+    <!-- Ubin Lingkaran Clay Bulat Sempurna (design/beranda.png) -->
     <FrameLayout
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:background="@drawable/bg_glass_card"
-        android:padding="12dp">
+        android:id="@+id/layoutCategoryTile"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_clay_circle_sky"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/ivCategoryIcon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
             android:contentDescription="@null"
             android:src="@drawable/ic_cat_tag"
-            app:tint="@color/sepi_orange_600" />
+            app:tint="@color/sepi_ink" />
     </FrameLayout>
 
+    <!-- Label Nama Kategori (1 Baris Tengah, Ellipsize) -->
     <TextView
         android:id="@+id/tvCategoryName"
         style="@style/TextAppearance.Sepi.Caption"
-        android:layout_width="72dp"
+        android:layout_width="68dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:ellipsize="end"
         android:gravity="center"
-        android:maxLines="2"
+        android:maxLines="1"
+        android:textColor="@color/sepi_ink"
+        android:textSize="12sp"
+        android:fontFamily="@font/nunito_bold"
         tools:text="Elektronik" />
 
 </LinearLayout>

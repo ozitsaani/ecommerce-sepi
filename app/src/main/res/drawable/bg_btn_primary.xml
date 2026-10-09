@@ -1,20 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/sepi_orange_400">
-    <item>
-        <selector>
-            <item android:state_pressed="true">
-                <shape android:shape="rectangle">
-                    <solid android:color="@color/sepi_orange_400" />
-                    <corners android:radius="@dimen/radius_btn" />
-                </shape>
-            </item>
-            <item>
-                <shape android:shape="rectangle">
-                    <solid android:color="@color/sepi_orange_500" />
-                    <corners android:radius="@dimen/radius_btn" />
-                </shape>
-            </item>
-        </selector>
-    </item>
-</ripple>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bg_clay_button" />
+</selector>

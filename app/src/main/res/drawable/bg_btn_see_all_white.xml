@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tombol clay putih penuh lebar untuk Lihat Semua Produk (design/beranda.png) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bayangan bawah clay (depth 4dp) -->
+    <item
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="4dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="24dp" />
+            <solid android:color="@color/sepi_clay_shade" />
+        </shape>
+    </item>
+
+    <!-- Badan putih murni dengan rim halus -->
+    <item
+        android:bottom="4dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="24dp" />
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/sepi_clay_rim" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Badge hitung mundur warna kuning emas claymorphism (design/beranda.png) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bayangan bawah halus -->
+    <item
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <solid android:color="#D4A72C" />
+        </shape>
+    </item>
+
+    <!-- Badan kuning emas cerah -->
+    <item
+        android:bottom="2dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <solid android:color="#FFD54F" />
+            <stroke
+                android:width="1dp"
+                android:color="#FFF9C4" />
+        </shape>
+    </item>
+</layer-list>

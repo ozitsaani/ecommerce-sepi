@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/sepi_clay_shade" />
+        </shape>
+    </item>
+    <item
+        android:bottom="8dp"
+        android:right="4dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/sepi_sky_100" />
+        </shape>
+    </item>
+    <item
+        android:bottom="70dp"
+        android:left="20dp"
+        android:right="70dp"
+        android:top="20dp">
+        <shape android:shape="oval">
+            <solid android:color="#4DFFFFFF" />
+        </shape>
+    </item>
+</layer-list>

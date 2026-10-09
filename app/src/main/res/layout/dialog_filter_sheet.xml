@@ -4,9 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_glass_sheet"
+    android:background="@drawable/bg_clay_sheet"
     android:orientation="vertical"
     android:padding="@dimen/spacing_lg">
+
+    <!-- Handle Inset 4x40dp (PRD 10.7) -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_inset_pill" />
 
     <TextView
         style="@style/TextAppearance.Sepi.Title"
@@ -35,12 +43,12 @@
             android:layout_marginEnd="6dp"
             android:layout_weight="1"
             android:hint="@string/filter_min_price"
-            app:boxBackgroundColor="@color/sepi_glass_input"
+            app:boxBackgroundColor="@color/sepi_sky_100"
             app:boxCornerRadiusBottomEnd="@dimen/radius_input"
             app:boxCornerRadiusBottomStart="@dimen/radius_input"
             app:boxCornerRadiusTopEnd="@dimen/radius_input"
             app:boxCornerRadiusTopStart="@dimen/radius_input"
-            app:boxStrokeColor="@color/sepi_orange_600">
+            app:boxStrokeColor="@color/sepi_input_stroke">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etMinPrice"
@@ -57,12 +65,12 @@
             android:layout_marginStart="6dp"
             android:layout_weight="1"
             android:hint="@string/filter_max_price"
-            app:boxBackgroundColor="@color/sepi_glass_input"
+            app:boxBackgroundColor="@color/sepi_sky_100"
             app:boxCornerRadiusBottomEnd="@dimen/radius_input"
             app:boxCornerRadiusBottomStart="@dimen/radius_input"
             app:boxCornerRadiusTopEnd="@dimen/radius_input"
             app:boxCornerRadiusTopStart="@dimen/radius_input"
-            app:boxStrokeColor="@color/sepi_orange_600">
+            app:boxStrokeColor="@color/sepi_input_stroke">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etMaxPrice"
@@ -81,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_md"
         android:text="@string/filter_rating_four"
-        app:buttonTint="@color/sepi_orange_600" />
+        app:buttonTint="@color/sepi_brand_500" />
 
     <!-- Tombol Aksi -->
     <LinearLayout

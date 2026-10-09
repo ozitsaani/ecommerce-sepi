@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@color/sepi_clay_shade" />
+                    <corners android:radius="9999dp" />
+                </shape>
+            </item>
+            <item
+                android:bottom="1dp"
+                android:right="1dp"
+                android:top="2dp">
+                <shape>
+                    <gradient
+                        android:angle="315"
+                        android:endColor="@color/sepi_clay_lo"
+                        android:startColor="@color/sepi_clay_hi"
+                        android:type="linear" />
+                    <corners android:radius="9999dp" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="@color/sepi_clay_rim" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@color/sepi_clay_shade" />
+                    <corners android:radius="9999dp" />
+                </shape>
+            </item>
+            <item
+                android:bottom="3dp"
+                android:right="2dp">
+                <shape>
+                    <gradient
+                        android:angle="315"
+                        android:endColor="@color/sepi_clay_lo"
+                        android:startColor="@color/sepi_clay_hi"
+                        android:type="linear" />
+                    <corners android:radius="9999dp" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="@color/sepi_clay_rim" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

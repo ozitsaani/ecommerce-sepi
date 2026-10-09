@@ -6,16 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.sepi.market.databinding.DialogEditProfileSheetBinding
-import com.sepi.market.ui.common.GlassBottomSheet
+import com.sepi.market.ui.common.ClayBottomSheet
 
 /**
- * Bottom Sheet Kaca untuk mengubah nama dan nomor telepon profil pengguna (PRD Bagian 9.3 Screen 11).
+ * Bottom Sheet Clay untuk mengubah nama dan nomor telepon profil pengguna (PRD Bagian 9.3 Screen 11).
  */
 class EditProfileSheet(
     private val currentName: String,
     private val currentPhone: String?,
     private val onSave: (fullName: String, phone: String?) -> Unit
-) : GlassBottomSheet() {
+) : ClayBottomSheet() {
 
     private var _binding: DialogEditProfileSheetBinding? = null
     private val binding get() = _binding!!

@@ -6,14 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Header Bar Kaca -->
+    <!-- Header Bar Clay Biru (PRD 10.4 & DESIGN_CLAY.md) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_glass_header"
+        android:background="@drawable/bg_clay_blue_header"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/spacing_sm">
+        android:paddingStart="12dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="19dp">
 
         <ImageView
             android:id="@+id/btnBack"
@@ -23,15 +26,15 @@
             android:contentDescription="@string/cancel"
             android:padding="8dp"
             android:src="@drawable/ic_arrow_back"
-            app:tint="@color/sepi_ink" />
+            app:tint="@color/white" />
 
-        <!-- Search Input -->
+        <!-- Search Input Inset -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="@dimen/input_height"
             android:layout_marginHorizontal="8dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_glass_input"
+            android:background="@drawable/bg_inset_input"
             android:gravity="center_vertical"
             android:paddingHorizontal="12dp">
 
@@ -54,6 +57,7 @@
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:maxLines="1"
+                android:textColor="@color/sepi_ink"
                 android:textSize="@dimen/text_base" />
 
             <ImageView
@@ -66,29 +70,30 @@
                 app:tint="@color/sepi_ink_soft" />
         </LinearLayout>
 
-        <!-- Ikon Keranjang dengan Badge -->
+        <!-- Ikon Keranjang dengan Badge (Bulat putih raised) -->
         <FrameLayout
             android:id="@+id/btnCartContainer"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/bg_glass_card"
+            android:background="@drawable/bg_clay_round"
             android:clickable="true"
             android:focusable="true">
 
             <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/cart_title"
                 android:src="@drawable/ic_cart"
-                app:tint="@color/sepi_orange_600" />
+                app:tint="@color/sepi_brand_500" />
 
             <TextView
                 android:id="@+id/tvCartBadge"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_gravity="top|end"
-                android:background="@drawable/bg_badge_discount"
+                android:background="@drawable/bg_cart_badge"
+                android:fontFamily="@font/nunito_extrabold"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="10sp"
@@ -106,7 +111,7 @@
         android:clipToPadding="false"
         android:overScrollMode="never"
         android:paddingHorizontal="@dimen/spacing_sm"
-        android:paddingVertical="6dp">
+        android:paddingVertical="8dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -118,14 +123,14 @@
                 android:id="@+id/btnFilter"
                 style="@style/Widget.Sepi.Button.Secondary"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="8dp"
                 android:paddingHorizontal="12dp"
                 android:text="@string/filter_title"
                 android:textSize="@dimen/text_xs"
                 app:icon="@drawable/ic_tune"
                 app:iconSize="16dp"
-                app:iconTint="@color/sepi_orange_700" />
+                app:iconTint="@color/sepi_text_accent" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroupSort"
@@ -140,28 +145,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="@string/sort_bestseller" />
+                    android:text="@string/sort_bestseller"
+                    app:checkedIconEnabled="true"
+                    app:checkedIconTint="@color/white"
+                    app:chipBackgroundColor="@drawable/bg_chip_selected" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipNewest"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sort_newest" />
+                    android:text="@string/sort_newest"
+                    app:checkedIconEnabled="true"
+                    app:checkedIconTint="@color/white" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipPriceAsc"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sort_price_asc" />
+                    android:text="@string/sort_price_asc"
+                    app:checkedIconEnabled="true"
+                    app:checkedIconTint="@color/white" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipPriceDesc"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sort_price_desc" />
+                    android:text="@string/sort_price_desc"
+                    app:checkedIconEnabled="true"
+                    app:checkedIconTint="@color/white" />
 
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
@@ -185,7 +199,7 @@
                 android:layout_gravity="center"
                 android:visibility="gone" />
 
-            <!-- Empty State -->
+            <!-- Empty State dengan kerikil clay -->
             <LinearLayout
                 android:id="@+id/layoutEmpty"
                 android:layout_width="wrap_content"
@@ -196,12 +210,19 @@
                 android:padding="@dimen/spacing_xl"
                 android:visibility="gone">
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_search"
-                    app:tint="@color/sepi_ink_soft" />
+                <FrameLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/bg_clay_tile_sky">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_search"
+                        app:tint="@color/sepi_brand_shade" />
+                </FrameLayout>
 
                 <TextView
                     style="@style/TextAppearance.Sepi.Title"
@@ -248,14 +269,14 @@
                             android:layout_height="220dp"
                             android:layout_margin="6dp"
                             android:layout_weight="1"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="220dp"
                             android:layout_margin="6dp"
                             android:layout_weight="1"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -267,14 +288,14 @@
                             android:layout_height="220dp"
                             android:layout_margin="6dp"
                             android:layout_weight="1"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="220dp"
                             android:layout_margin="6dp"
                             android:layout_weight="1"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
                     </LinearLayout>
                 </LinearLayout>
             </com.facebook.shimmer.ShimmerFrameLayout>

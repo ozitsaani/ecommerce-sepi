@@ -8,17 +8,17 @@ import android.widget.Toast
 import com.sepi.market.core.Formatters
 import com.sepi.market.data.remote.dto.VoucherDto
 import com.sepi.market.databinding.DialogVoucherPickerSheetBinding
-import com.sepi.market.ui.common.GlassBottomSheet
+import com.sepi.market.ui.common.ClayBottomSheet
 import com.sepi.market.ui.profile.VoucherAdapter
 
 /**
- * Bottom Sheet Kaca untuk memilih atau memasukkan kode voucher saat checkout (PRD Bagian 9.3 Screen 8).
+ * Bottom Sheet Clay untuk memilih atau memasukkan kode voucher saat checkout (PRD Bagian 9.3 Screen 8).
  */
 class VoucherPickerSheet(
     private val subtotal: Long,
     private val vouchers: List<VoucherDto>,
     private val onVoucherSelected: (VoucherDto?) -> Unit
-) : GlassBottomSheet() {
+) : ClayBottomSheet() {
 
     private var _binding: DialogVoucherPickerSheetBinding? = null
     private val binding get() = _binding!!

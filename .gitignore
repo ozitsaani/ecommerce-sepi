@@ -17,4 +17,6 @@ local.properties
 
 # Exclusions
 *.md
+!README.md
+!readme.md
 design/

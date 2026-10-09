@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,12 +8,20 @@
     android:orientation="vertical"
     android:padding="@dimen/spacing_xl">
 
-    <ImageView
-        android:id="@+id/ivErrorIcon"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:contentDescription="@string/error_general"
-        android:src="@drawable/ic_wifi_off" />
+    <FrameLayout
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:background="@drawable/bg_clay_round">
+
+        <ImageView
+            android:id="@+id/ivErrorIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/error_general"
+            android:src="@drawable/ic_wifi_off"
+            app:tint="@color/sepi_brand_shade" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvErrorMessage"

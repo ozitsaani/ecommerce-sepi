@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import com.sepi.market.data.remote.dto.AddressDto
 import com.sepi.market.databinding.DialogAddressPickerSheetBinding
-import com.sepi.market.ui.common.GlassBottomSheet
+import com.sepi.market.ui.common.ClayBottomSheet
 import com.sepi.market.ui.profile.AddressAdapter
 
 /**
- * Bottom Sheet Kaca untuk memilih alamat pengiriman saat checkout (PRD Bagian 9.3 Screen 8).
+ * Bottom Sheet Clay untuk memilih alamat pengiriman saat checkout (PRD Bagian 9.3 Screen 8).
  */
 class AddressPickerSheet(
     private val addresses: List<AddressDto>,
     private val onAddressSelected: (AddressDto) -> Unit,
     private val onAddNewAddressClick: () -> Unit
-) : GlassBottomSheet() {
+) : ClayBottomSheet() {
 
     private var _binding: DialogAddressPickerSheetBinding? = null
     private val binding get() = _binding!!

@@ -4,32 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_app_gradient"
+    android:background="@color/sepi_sky_50"
     tools:context="com.sepi.market.ui.splash.SplashActivity">
 
-    <!-- 3 Blobs Latar Belakang (PRD Bagian 10.3) -->
+    <!-- Gelembung Dekoratif Clay (PRD 10.3 & DESIGN_CLAY.md) -->
     <View
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
         android:layout_gravity="top|start"
-        android:layout_marginStart="-80dp"
-        android:layout_marginTop="-80dp"
-        android:background="@drawable/bg_blob_orange" />
+        android:layout_marginStart="-90dp"
+        android:layout_marginTop="-90dp"
+        android:background="@drawable/bg_clay_bubble_sky" />
+
+    <View
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="-80dp"
+        android:background="@drawable/bg_clay_bubble_deep" />
 
     <View
         android:layout_width="240dp"
         android:layout_height="240dp"
-        android:layout_gravity="center_vertical|end"
-        android:layout_marginEnd="-60dp"
-        android:background="@drawable/bg_blob_amber" />
-
-    <View
-        android:layout_width="260dp"
-        android:layout_height="260dp"
         android:layout_gravity="bottom|start"
         android:layout_marginStart="-80dp"
         android:layout_marginBottom="-80dp"
-        android:background="@drawable/bg_blob_orange" />
+        android:background="@drawable/bg_clay_bubble_lavender" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clContent"
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
-            android:indeterminateTint="@color/sepi_orange_600"
+            android:indeterminateTint="@color/sepi_brand_500"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -6,18 +6,94 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Header Kaca -->
+    <!-- Top Bar Clay Biru Header (design/08_kategori.png) -->
     <LinearLayout
+        android:id="@+id/headerContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_glass_header"
-        android:padding="@dimen/spacing_base">
+        android:background="@drawable/bg_clay_blue_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/spacing_base"
+        android:paddingTop="@dimen/spacing_base"
+        android:paddingEnd="@dimen/spacing_base"
+        android:paddingBottom="20dp">
 
-        <TextView
-            style="@style/TextAppearance.Sepi.Title"
-            android:layout_width="match_parent"
+        <!-- Store Icon Circle -->
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_clay_circle_hi"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_cat_home"
+                app:tint="@color/sepi_brand_500" />
+        </FrameLayout>
+
+        <!-- Subtitle & Title -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/section_categories" />
+            android:layout_marginStart="@dimen/spacing_md"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.Sepi.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:text="SEPI CIREBON"
+                android:textColor="@color/white"
+                android:textSize="11sp" />
+
+            <TextView
+                style="@style/TextAppearance.Sepi.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/nav_category"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <!-- Cart Button in Header -->
+        <FrameLayout
+            android:id="@+id/btnCartContainer"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_clay_circle_hi"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/cart_title"
+                android:src="@drawable/ic_cart"
+                app:tint="@color/sepi_brand_500" />
+
+            <TextView
+                android:id="@+id/tvCartBadge"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="top|end"
+                android:background="@drawable/bg_cart_badge"
+                android:fontFamily="@font/nunito_extrabold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="3"
+                tools:visibility="visible" />
+        </FrameLayout>
+
     </LinearLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -49,37 +125,58 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <View
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:background="@drawable/bg_glass_card" />
+                        android:layout_height="wrap_content">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@drawable/bg_glass_card" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="112dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_clay_card" />
 
-                    <View
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="112dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_clay_card" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@drawable/bg_glass_card" />
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="112dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_clay_card" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="112dp"
+                            android:layout_margin="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_clay_card" />
+                    </LinearLayout>
                 </LinearLayout>
             </com.facebook.shimmer.ShimmerFrameLayout>
 
-            <!-- Grid Kategori -->
+            <!-- Grid Kategori 2 Kolom (112dp Clay Cards) -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCategories"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:layoutAnimation="@anim/layout_animation_fade_in"
-                android:padding="@dimen/spacing_sm"
-                android:paddingBottom="96dp"
+                android:padding="8dp"
+                android:paddingBottom="100dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
-                tools:listitem="@layout/item_category_chip" />
+                tools:listitem="@layout/item_category_grid_card" />
 
         </FrameLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

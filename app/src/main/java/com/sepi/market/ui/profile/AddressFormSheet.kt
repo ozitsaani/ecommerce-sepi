@@ -8,15 +8,15 @@ import android.widget.Toast
 import com.sepi.market.R
 import com.sepi.market.data.remote.dto.AddressDto
 import com.sepi.market.databinding.DialogAddressFormSheetBinding
-import com.sepi.market.ui.common.GlassBottomSheet
+import com.sepi.market.ui.common.ClayBottomSheet
 
 /**
- * Bottom Sheet Kaca untuk menambah atau mengubah alamat pengiriman Cirebon (PRD Bagian 9.3 Screen 11).
+ * Bottom Sheet Clay untuk menambah atau mengubah alamat pengiriman Cirebon (PRD Bagian 9.3 Screen 11).
  */
 class AddressFormSheet(
     private val addressToEdit: AddressDto? = null,
     private val onSave: (address: AddressDto) -> Unit
-) : GlassBottomSheet() {
+) : ClayBottomSheet() {
 
     private var _binding: DialogAddressFormSheetBinding? = null
     private val binding get() = _binding!!

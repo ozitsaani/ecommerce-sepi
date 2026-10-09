@@ -4,9 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_glass_sheet"
+    android:background="@drawable/bg_clay_sheet"
     android:orientation="vertical"
     android:padding="@dimen/spacing_lg">
+
+    <!-- Handle Inset 4x40dp (PRD 10.7) -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_inset_pill" />
 
     <TextView
         style="@style/TextAppearance.Sepi.Title"
@@ -32,6 +40,6 @@
         android:text="@string/add_new_address"
         app:icon="@drawable/ic_add"
         app:iconGravity="textStart"
-        app:iconTint="@color/sepi_orange_700" />
+        app:iconTint="@color/sepi_text_accent" />
 
 </LinearLayout>

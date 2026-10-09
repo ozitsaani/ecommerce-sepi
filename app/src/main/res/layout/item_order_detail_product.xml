@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    app:cardBackgroundColor="@color/sepi_glass_fill"
-    app:cardCornerRadius="@dimen/radius_card"
-    app:cardElevation="@dimen/card_elevation">
+    android:background="@drawable/bg_clay_card">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/spacing_md">
+        android:paddingHorizontal="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_md"
+        android:paddingBottom="20dp">
 
         <!-- Gambar Produk -->
         <com.google.android.material.imageview.ShapeableImageView
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textColor="@color/sepi_orange_700"
+                android:textColor="@color/sepi_price"
                 android:textStyle="bold"
                 tools:text="1x Rp199.000" />
 
@@ -83,4 +83,4 @@
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</FrameLayout>

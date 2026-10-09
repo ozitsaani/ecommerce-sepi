@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardVoucher"
-    android:layout_width="260dp"
+    android:layout_width="270dp"
     android:layout_height="wrap_content"
     android:layout_marginEnd="12dp"
-    app:cardBackgroundColor="@color/sepi_glass_fill"
-    app:cardCornerRadius="@dimen/radius_card"
-    app:cardElevation="@dimen/card_elevation">
+    android:background="@drawable/bg_clay_blue_card">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/spacing_md">
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="22dp">
 
+        <!-- Baris 1: Ikon Tiket & Judul Voucher (Putih Tebal) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,11 +24,11 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_voucher"
-                app:tint="@color/sepi_orange_600" />
+                app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/tvVoucherTitle"
@@ -36,40 +37,72 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_base"
-                tools:text="Diskon 10 persen" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCopyCode"
-                style="@style/Widget.Sepi.Button.Secondary"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="0dp"
-                android:text="@string/btn_copy_code"
-                android:textSize="12sp" />
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:text="Diskon 10%" />
         </LinearLayout>
 
+        <!-- Baris 2: Keterangan / Syarat Voucher (Putih Lembut) -->
         <TextView
             android:id="@+id/tvVoucherDesc"
             style="@style/TextAppearance.Sepi.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="2dp"
             android:maxLines="2"
-            tools:text="Diskon 10 persen, maksimal Rp25.000. Minimal belanja Rp100.000." />
+            android:textColor="#D3E5FB"
+            android:textSize="12sp"
+            tools:text="Maks. Rp25.000, min. belanja Rp100.000" />
 
-        <TextView
-            android:id="@+id/tvVoucherCode"
-            style="@style/TextAppearance.Sepi.Price"
-            android:layout_width="wrap_content"
+        <!-- Baris 3: Kode Voucher (Pill Dashed) & Tombol Salin (Putih Clay) -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_glass_input"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="2dp"
-            android:textSize="@dimen/text_xs"
-            tools:text="KODE: SEPIHEMAT" />
+            android:layout_marginTop="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Pill Kode Voucher -->
+            <TextView
+                android:id="@+id/tvVoucherCode"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_voucher_dashed"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/nunito_extrabold"
+                tools:text="SEPIHEMAT" />
+
+            <!-- Tombol Salin Putih Clay -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCopyCode"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:background="@drawable/bg_btn_copy_white"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minHeight="0dp"
+                android:minWidth="64dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="0dp"
+                android:text="Salin"
+                android:textColor="@color/sepi_brand_500"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/nunito_extrabold"
+                app:backgroundTint="@null"
+                app:elevation="0dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</FrameLayout>

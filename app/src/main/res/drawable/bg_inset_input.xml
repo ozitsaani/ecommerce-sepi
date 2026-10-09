@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="315"
+        android:endColor="@color/sepi_sky_100"
+        android:startColor="@color/sepi_inset_top"
+        android:type="linear" />
+    <corners android:radius="20dp" />
+    <stroke
+        android:width="1.5dp"
+        android:color="@color/sepi_input_stroke" />
+</shape>

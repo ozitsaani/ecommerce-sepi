@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/sepi_sky_50"
     android:orientation="vertical">
 
-    <!-- Header Bar Kaca -->
+    <!-- Header Bar Clay Biru -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_glass_header"
+        android:background="@drawable/bg_clay_blue_header"
         android:gravity="center_vertical"
-        android:padding="@dimen/spacing_sm">
+        android:paddingHorizontal="@dimen/spacing_base"
+        android:paddingTop="12dp"
+        android:paddingBottom="18dp">
 
         <TextView
             style="@style/TextAppearance.Sepi.Title"
@@ -20,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:text="@string/favorites_title" />
 
         <!-- Ikon Keranjang dengan Badge -->
@@ -27,24 +31,25 @@
             android:id="@+id/btnCartContainer"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/bg_glass_card"
+            android:background="@drawable/bg_clay_round"
             android:clickable="true"
             android:focusable="true">
 
             <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/cart_title"
                 android:src="@drawable/ic_cart"
-                app:tint="@color/sepi_orange_600" />
+                app:tint="@color/sepi_brand_shade" />
 
             <TextView
                 android:id="@+id/tvCartBadge"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:layout_gravity="top|end"
-                android:background="@drawable/bg_badge_discount"
+                android:background="@drawable/bg_cart_badge"
+                android:fontFamily="@font/nunito_extrabold"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="10sp"
@@ -84,12 +89,19 @@
                 android:padding="@dimen/spacing_xl"
                 android:visibility="gone">
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_favorite_border"
-                    app:tint="@color/sepi_ink_soft" />
+                <FrameLayout
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/bg_clay_round">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_favorite_border"
+                        app:tint="@color/sepi_heart" />
+                </FrameLayout>
 
                 <TextView
                     style="@style/TextAppearance.Sepi.Title"
@@ -129,14 +141,14 @@
                             android:layout_height="220dp"
                             android:layout_margin="6dp"
                             android:layout_weight="1"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="220dp"
                             android:layout_margin="6dp"
                             android:layout_weight="1"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="@drawable/bg_clay_card" />
                     </LinearLayout>
                 </LinearLayout>
             </com.facebook.shimmer.ShimmerFrameLayout>

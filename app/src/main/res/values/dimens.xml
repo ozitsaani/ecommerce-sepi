@@ -13,20 +13,29 @@
 
     <!-- Corner Radius -->
     <dimen name="radius_xs">4dp</dimen>
-    <dimen name="radius_sm">8dp</dimen>
-    <dimen name="radius_input">14dp</dimen>
-    <dimen name="radius_btn">14dp</dimen>
-    <dimen name="radius_card">20dp</dimen>
-    <dimen name="radius_header_bottom">24dp</dimen>
-    <dimen name="radius_bar">28dp</dimen>
-    <dimen name="radius_sheet">28dp</dimen>
+    <dimen name="radius_sm">10dp</dimen>
+    <dimen name="radius_md">16dp</dimen>
+    <dimen name="radius_input">20dp</dimen>
+    <dimen name="radius_btn">20dp</dimen>
+    <dimen name="radius_card">28dp</dimen>
+    <dimen name="radius_header_bottom">32dp</dimen>
+    <dimen name="radius_bar">32dp</dimen>
+    <dimen name="radius_sheet">32dp</dimen>
+    <dimen name="radius_pill">9999dp</dimen>
 
     <!-- Component Sizing -->
-    <dimen name="button_height">48dp</dimen>
-    <dimen name="input_height">48dp</dimen>
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="input_height">52dp</dimen>
     <dimen name="touch_target_min">48dp</dimen>
-    <dimen name="card_stroke_width">1dp</dimen>
-    <dimen name="card_elevation">2dp</dimen>
+    <!-- Bottom nav: 64dp bar height + 12dp margin top + 12dp margin bottom = 88dp -->
+    <dimen name="bottom_nav_total_height">88dp</dimen>
+    <dimen name="bottom_nav_bar_height">64dp</dimen>
+
+    <!-- Clay Depth Values -->
+    <dimen name="depth_raised_1">3dp</dimen>
+    <dimen name="depth_raised_2">5dp</dimen>
+    <dimen name="depth_raised_3">7dp</dimen>
+    <dimen name="depth_pressed">1dp</dimen>
 
     <!-- Typography -->
     <dimen name="text_2xs">10sp</dimen>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search bar putih bersih claymorphism dengan bevel 3D halus (DESIGN_CLAY.md) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bayangan luar bawah (drop shade) -->
+    <item
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="3dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="20dp" />
+            <solid android:color="@color/sepi_clay_shade" />
+        </shape>
+    </item>
+
+    <!-- Badan putih murni dengan rim halus -->
+    <item
+        android:bottom="3dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="20dp" />
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/sepi_clay_rim" />
+        </shape>
+    </item>
+</layer-list>

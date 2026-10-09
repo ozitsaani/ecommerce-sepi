@@ -41,6 +41,7 @@
     <string name="voucher_code_copied">Kode voucher %1$s disalin!</string>
 
     <!-- Products & Filter -->
+    <string name="btn_filter">Filter</string>
     <string name="filter_title">Filter Produk</string>
     <string name="sort_newest">Terbaru</string>
     <string name="sort_bestseller">Terlaris</string>
@@ -82,20 +83,25 @@
     <string name="stock_remaining">Stok tersisa %1$d</string>
 
     <!-- Checkout -->
-    <string name="checkout_title">Pengiriman &amp; Checkout</string>
+    <string name="checkout_title">Pengiriman Checkout</string>
     <string name="shipping_address_title">Alamat Pengiriman</string>
     <string name="change_address">Ubah</string>
     <string name="add_address">Tambah Alamat</string>
     <string name="no_address_warning">Silakan tambah alamat pengiriman terlebih dahulu</string>
     <string name="non_cirebon_warning">Alamat harus berada di wilayah Cirebon</string>
-    <string name="order_items_title">Rincian Barang</string>
+    <string name="order_items_title">Produk Dipesan</string>
     <string name="shipping_method_title">Opsi Pengiriman</string>
     <string name="shipping_reguler">Reguler (2-3 hari) - Rp10.000</string>
     <string name="shipping_express">Express (1 hari) - Rp25.000</string>
+    <string name="shipping_reguler_card">Reguler (2-3 hari)\nEstimasi tiba 18-19 Okt</string>
+    <string name="shipping_express_card">Express (1 hari)\nEstimasi tiba besok</string>
+    <string name="voucher_installed_title">Voucher Terpasang</string>
+    <string name="voucher_used">Tergunakan</string>
     <string name="voucher_section_title">Voucher Promo</string>
-    <string name="btn_select_voucher">Gunakan Voucher</string>
+    <string name="btn_select_voucher">Pilih</string>
     <string name="payment_method_title">Metode Pembayaran</string>
-    <string name="payment_bca_va">Virtual Account BCA (Sandbox)</string>
+    <string name="payment_method_action_select">Pilih</string>
+    <string name="payment_bca_va">Virtual Account BCA</string>
     <string name="payment_summary_title">Ringkasan Pembayaran</string>
     <string name="subtotal">Subtotal Produk</string>
     <string name="shipping_cost">Biaya Pengiriman</string>

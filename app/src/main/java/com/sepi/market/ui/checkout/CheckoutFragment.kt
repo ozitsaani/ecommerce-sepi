@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -23,13 +25,12 @@ import com.sepi.market.data.remote.dto.AddressDto
 import com.sepi.market.data.remote.dto.CartItemDto
 import com.sepi.market.data.remote.dto.VoucherDto
 import com.sepi.market.databinding.FragmentCheckoutBinding
-import com.sepi.market.ui.cart.CartAdapter
 import kotlinx.coroutines.launch
 import kotlin.math.max
 import kotlin.math.min
 
 /**
- * Fragment Layar Checkout dengan alamat Cirebon, pengiriman Reguler/Express, voucher, dan pembuatan pesanan (PRD Bagian 9.3 Screen 8).
+ * Fragment Layar Checkout dengan alamat Cirebon, pengiriman Reguler/Express, voucher, dan pembuatan pesanan (PRD Bagian 9.3 Screen 8 & design 05_checkout.png).
  */
 class CheckoutFragment : Fragment() {
 
@@ -40,7 +41,7 @@ class CheckoutFragment : Fragment() {
         (requireActivity().application as SepiApp).appContainer.viewModelFactory
     }
 
-    private lateinit var cartAdapter: CartAdapter
+    private lateinit var checkoutAdapter: CheckoutAdapter
     private var cartItemIds: List<String> = emptyList()
     private var currentCheckoutData: CheckoutData? = null
 
@@ -59,6 +60,7 @@ class CheckoutFragment : Fragment() {
         val array = arguments?.getStringArray("cartItemIds")
         cartItemIds = array?.toList() ?: emptyList()
 
+        setupWindowInsets()
         setupAdapter()
         setupListeners()
         observeViewModel()
@@ -66,13 +68,28 @@ class CheckoutFragment : Fragment() {
         viewModel.loadCheckoutData(cartItemIds)
     }
 
+    private fun setupWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.headerContainer) { v, insets ->
+            val statusBarInset = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            v.setPadding(v.paddingLeft, statusBarInset + resources.getDimensionPixelSize(R.dimen.spacing_xs), v.paddingRight, v.paddingBottom)
+            insets
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.bottomBarOrder) { v, insets ->
+            val navBarInset = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            val defaultMargin = resources.getDimensionPixelSize(R.dimen.spacing_sm)
+            val params = v.layoutParams as? ViewGroup.MarginLayoutParams
+            if (params != null) {
+                params.bottomMargin = defaultMargin + navBarInset
+                v.layoutParams = params
+            }
+            insets
+        }
+    }
+
     private fun setupAdapter() {
-        cartAdapter = CartAdapter(
-            onSelectChange = {},
-            onQuantityChange = { _, _ -> },
-            onDeleteClick = {}
-        )
-        binding.rvCheckoutItems.adapter = cartAdapter
+        checkoutAdapter = CheckoutAdapter()
+        binding.rvCheckoutItems.adapter = checkoutAdapter
     }
 
     private fun setupListeners() {
@@ -104,19 +121,25 @@ class CheckoutFragment : Fragment() {
             updateSummary()
         }
 
-        binding.btnSelectVoucher.setOnClickListener {
-            val data = currentCheckoutData ?: return@setOnClickListener
-            val subtotal = calculateSubtotal(data.selectedCartItems)
-            val sheet = VoucherPickerSheet(
-                subtotal = subtotal,
-                vouchers = data.vouchers,
-                onVoucherSelected = { voucher ->
-                    viewModel.selectVoucher(voucher)
-                    updateSummary()
-                }
-            )
-            sheet.show(childFragmentManager, "VoucherPickerSheet")
+        val openVoucherPicker = {
+            val data = currentCheckoutData
+            if (data != null) {
+                val subtotal = calculateSubtotal(data.selectedCartItems)
+                val sheet = VoucherPickerSheet(
+                    subtotal = subtotal,
+                    vouchers = data.vouchers,
+                    onVoucherSelected = { voucher ->
+                        viewModel.selectVoucher(voucher)
+                        updateSummary()
+                    }
+                )
+                sheet.show(childFragmentManager, "VoucherPickerSheet")
+            }
         }
+
+        binding.btnSelectVoucher.setOnClickListener { openVoucherPicker() }
+        binding.boxVoucherContent.setOnClickListener { openVoucherPicker() }
+        binding.cardVoucherContainer.setOnClickListener { openVoucherPicker() }
 
         binding.btnPlaceOrder.setOnClickListener {
             viewModel.placeOrder(cartItemIds)
@@ -169,8 +192,11 @@ class CheckoutFragment : Fragment() {
                 val data = state.data
                 currentCheckoutData = data
 
-                cartAdapter.submitList(data.selectedCartItems)
-                cartAdapter.setSelectedIds(data.selectedCartItems.map { it.id }.toSet())
+                binding.tvOrderItemsTitle.text = "Produk Dipesan (${data.selectedCartItems.size})"
+                binding.tvSubtotalLabel.text = "Subtotal Produk (${data.selectedCartItems.size} item)"
+
+                checkoutAdapter.submitList(data.selectedCartItems)
+                checkoutAdapter.setSelectedIds(data.selectedCartItems.map { it.id }.toSet())
 
                 updateSummary()
             }
@@ -187,8 +213,10 @@ class CheckoutFragment : Fragment() {
 
     private fun populateAddress(address: AddressDto?) {
         if (address != null) {
-            binding.tvRecipient.text = "${address.recipientName} (${address.phone})"
+            val phone = if (!address.phone.isNullOrBlank()) " • ${address.phone}" else ""
+            binding.tvRecipient.text = "${address.recipientName}$phone"
             binding.tvFullAddress.text = "${address.street}, ${address.district}, ${address.city} ${address.postalCode}".trimEnd()
+            binding.tvBadgeUtama.visible()
 
             val isCirebon = address.city.contains("Cirebon", ignoreCase = true)
             binding.tvNonCirebonWarning.showIf(!isCirebon)
@@ -196,6 +224,7 @@ class CheckoutFragment : Fragment() {
         } else {
             binding.tvRecipient.text = getString(R.string.no_address_warning)
             binding.tvFullAddress.text = ""
+            binding.tvBadgeUtama.gone()
             binding.tvNonCirebonWarning.gone()
             binding.btnPlaceOrder.isEnabled = false
         }
@@ -203,9 +232,11 @@ class CheckoutFragment : Fragment() {
 
     private fun populateVoucher(voucher: VoucherDto?) {
         if (voucher != null) {
-            binding.tvVoucherPreview.text = "${voucher.title} (${voucher.code})"
-            binding.btnSelectVoucher.text = getString(R.string.change_address)
+            binding.tvVoucherCode.visible()
+            binding.tvVoucherCode.text = voucher.code
+            binding.btnSelectVoucher.text = getString(R.string.voucher_used)
         } else {
+            binding.tvVoucherCode.gone()
             binding.tvVoucherPreview.text = getString(R.string.voucher_section_title)
             binding.btnSelectVoucher.text = getString(R.string.btn_select_voucher)
         }
@@ -253,7 +284,13 @@ class CheckoutFragment : Fragment() {
         binding.tvSubtotal.text = Formatters.formatRupiah(subtotal)
         binding.tvShippingCost.text = Formatters.formatRupiah(shippingCost)
         binding.tvDiscount.text = "-${Formatters.formatRupiah(discount)}"
+
+        if (voucher != null) {
+            binding.tvVoucherPreview.text = "-${Formatters.formatRupiah(discount)}"
+        }
+
         binding.tvTotalPayment.text = Formatters.formatRupiah(total)
+        binding.tvSummaryTotal.text = Formatters.formatRupiah(total)
     }
 
     private fun handleEvent(event: CheckoutUiEvent) {

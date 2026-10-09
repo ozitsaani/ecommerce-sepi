@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="#26EA580C">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#14EA580C" />
-            <corners android:radius="@dimen/radius_btn" />
-            <stroke
-                android:width="1.5dp"
-                android:color="@color/sepi_orange_600" />
-        </shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@color/sepi_clay_shade" />
+                    <corners android:radius="20dp" />
+                </shape>
+            </item>
+            <item
+                android:bottom="2dp"
+                android:right="1dp"
+                android:top="3dp">
+                <shape>
+                    <gradient
+                        android:angle="315"
+                        android:endColor="@color/sepi_clay_lo"
+                        android:startColor="@color/sepi_clay_hi"
+                        android:type="linear" />
+                    <corners android:radius="20dp" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="@color/sepi_clay_rim" />
+                </shape>
+            </item>
+        </layer-list>
     </item>
-</ripple>
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@color/sepi_clay_shade" />
+                    <corners android:radius="20dp" />
+                </shape>
+            </item>
+            <item
+                android:bottom="5dp"
+                android:right="3dp">
+                <shape>
+                    <gradient
+                        android:angle="315"
+                        android:endColor="@color/sepi_clay_lo"
+                        android:startColor="@color/sepi_clay_hi"
+                        android:type="linear" />
+                    <corners android:radius="20dp" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="@color/sepi_clay_rim" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

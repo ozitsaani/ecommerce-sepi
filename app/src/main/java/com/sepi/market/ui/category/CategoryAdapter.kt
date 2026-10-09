@@ -7,33 +7,41 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sepi.market.R
 import com.sepi.market.data.remote.dto.CategoryDto
-import com.sepi.market.databinding.ItemCategoryChipBinding
+import com.sepi.market.databinding.ItemCategoryGridCardBinding
 
 /**
- * ListAdapter RecyclerView untuk menampilkan kategori produk.
+ * ListAdapter RecyclerView untuk menampilkan ubin kategori produk dalam grid 2 kolom (DESIGN_CLAY.md).
  */
 class CategoryAdapter(
     private val onCategoryClick: (CategoryDto) -> Unit
 ) : ListAdapter<CategoryDto, CategoryAdapter.CategoryViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val binding = ItemCategoryChipBinding.inflate(
+        val binding = ItemCategoryGridCardBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return CategoryViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), position)
     }
 
     inner class CategoryViewHolder(
-        private val binding: ItemCategoryChipBinding
+        private val binding: ItemCategoryGridCardBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(category: CategoryDto) {
+        fun bind(category: CategoryDto, position: Int) {
             binding.tvCategoryName.text = category.name
             binding.ivCategoryIcon.setImageResource(getCategoryIconRes(category.iconKey))
+
+            val tileBgRes = when (position % 4) {
+                0 -> R.drawable.bg_clay_tile_blush
+                1 -> R.drawable.bg_clay_tile_butter
+                2 -> R.drawable.bg_clay_tile_lavender
+                else -> R.drawable.bg_clay_tile_sky
+            }
+            binding.cardCategory.setBackgroundResource(tileBgRes)
 
             binding.root.setOnClickListener {
                 onCategoryClick(category)

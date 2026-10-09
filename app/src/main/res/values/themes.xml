@@ -2,13 +2,14 @@
 <resources>
     <!-- Base application theme -->
     <style name="Theme.Sepi" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/sepi_orange_600</item>
+        <item name="colorPrimary">@color/sepi_brand_500</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/sepi_orange_500</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <item name="android:colorBackground">@color/sepi_peach_50</item>
-        <item name="colorSurface">@color/sepi_glass_fill</item>
+        <item name="colorSecondary">@color/sepi_amber_400</item>
+        <item name="colorOnSecondary">@color/sepi_ink</item>
+        <item name="android:colorBackground">@color/sepi_sky_50</item>
+        <item name="colorSurface">@color/sepi_clay_card</item>
         <item name="colorOnSurface">@color/sepi_ink</item>
+        <item name="fontFamily">@font/nunito</item>
 
         <!-- System bars -->
         <item name="android:statusBarColor">@color/transparent</item>
@@ -22,7 +23,7 @@
 
     <!-- Splash Screen Theme -->
     <style name="Theme.Sepi.Splash" parent="Theme.Sepi">
-        <item name="android:windowBackground">@drawable/bg_app_gradient</item>
+        <item name="android:windowBackground">@color/sepi_sky_50</item>
         <item name="android:statusBarColor">@color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>

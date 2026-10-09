@@ -4,20 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/sepi_sky_50"
     android:orientation="vertical">
 
-    <!-- Header Bar Kaca -->
+    <!-- Header Bar Clay Biru -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_glass_header"
-        android:padding="@dimen/spacing_sm">
+        android:background="@drawable/bg_clay_blue_header"
+        android:paddingHorizontal="@dimen/spacing_base"
+        android:paddingTop="12dp"
+        android:paddingBottom="18dp">
 
         <TextView
             style="@style/TextAppearance.Sepi.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="8dp"
+            android:textColor="@color/white"
             android:text="@string/profile_title" />
     </LinearLayout>
 
@@ -38,24 +41,26 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- 1. Header Kartu Profil -->
+                <!-- 1. Header Kartu Profil Clay -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_glass_card"
+                    android:background="@drawable/bg_clay_card"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/spacing_lg">
+                    android:paddingHorizontal="@dimen/spacing_lg"
+                    android:paddingTop="@dimen/spacing_lg"
+                    android:paddingBottom="24dp">
 
-                    <!-- Avatar Bulat -->
+                    <!-- Avatar Bulat Clay -->
                     <TextView
                         android:id="@+id/tvAvatarInitial"
                         style="@style/TextAppearance.Sepi.Title"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
-                        android:background="@drawable/bg_chip_selected"
+                        android:background="@drawable/bg_clay_tile_sky"
                         android:gravity="center"
-                        android:textColor="@color/sepi_orange_700"
+                        android:textColor="@color/sepi_brand_shade"
                         android:textSize="22sp"
                         tools:text="A" />
 
@@ -85,13 +90,13 @@
 
                     <ImageView
                         android:id="@+id/btnEditProfile"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:background="@drawable/bg_glass_input"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_clay_round"
                         android:contentDescription="@string/menu_edit_profile"
-                        android:padding="8dp"
+                        android:padding="10dp"
                         android:src="@drawable/ic_edit"
-                        app:tint="@color/sepi_orange_700" />
+                        app:tint="@color/sepi_brand_shade" />
                 </LinearLayout>
 
                 <!-- 2. Pintasan Status Pesanan -->
@@ -99,9 +104,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_glass_card"
+                    android:background="@drawable/bg_clay_card"
                     android:orientation="vertical"
-                    android:padding="@dimen/spacing_md">
+                    android:paddingHorizontal="@dimen/spacing_md"
+                    android:paddingTop="@dimen/spacing_md"
+                    android:paddingBottom="20dp">
 
                     <TextView
                         style="@style/TextAppearance.Sepi.Title"
@@ -132,7 +139,7 @@
                                 android:layout_height="28dp"
                                 android:contentDescription="@null"
                                 android:src="@drawable/ic_payments"
-                                app:tint="@color/sepi_orange_600" />
+                                app:tint="@color/sepi_brand_500" />
 
                             <TextView
                                 style="@style/TextAppearance.Sepi.Caption"
@@ -158,7 +165,7 @@
                                 android:layout_height="28dp"
                                 android:contentDescription="@null"
                                 android:src="@drawable/ic_receipt"
-                                app:tint="@color/sepi_orange_600" />
+                                app:tint="@color/sepi_brand_500" />
 
                             <TextView
                                 style="@style/TextAppearance.Sepi.Caption"
@@ -184,7 +191,7 @@
                                 android:layout_height="28dp"
                                 android:contentDescription="@null"
                                 android:src="@drawable/ic_shipping"
-                                app:tint="@color/sepi_orange_600" />
+                                app:tint="@color/sepi_brand_500" />
 
                             <TextView
                                 style="@style/TextAppearance.Sepi.Caption"
@@ -210,7 +217,7 @@
                                 android:layout_height="28dp"
                                 android:contentDescription="@null"
                                 android:src="@drawable/ic_check_circle"
-                                app:tint="@color/sepi_orange_600" />
+                                app:tint="@color/sepi_brand_500" />
 
                             <TextView
                                 style="@style/TextAppearance.Sepi.Caption"
@@ -228,9 +235,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_glass_card"
+                    android:background="@drawable/bg_clay_card"
                     android:orientation="vertical"
-                    android:padding="@dimen/spacing_sm">
+                    android:paddingHorizontal="@dimen/spacing_sm"
+                    android:paddingTop="@dimen/spacing_sm"
+                    android:paddingBottom="16dp">
 
                     <!-- Daftar Alamat -->
                     <LinearLayout
@@ -247,7 +256,7 @@
                             android:layout_height="20dp"
                             android:contentDescription="@null"
                             android:src="@drawable/ic_location"
-                            app:tint="@color/sepi_orange_600" />
+                            app:tint="@color/sepi_brand_shade" />
 
                         <TextView
                             style="@style/TextAppearance.Sepi.Body"
@@ -278,7 +287,7 @@
                             android:layout_height="20dp"
                             android:contentDescription="@null"
                             android:src="@drawable/ic_favorite_border"
-                            app:tint="@color/sepi_orange_600" />
+                            app:tint="@color/sepi_heart" />
 
                         <TextView
                             style="@style/TextAppearance.Sepi.Body"
@@ -309,7 +318,7 @@
                             android:layout_height="20dp"
                             android:contentDescription="@null"
                             android:src="@drawable/ic_voucher"
-                            app:tint="@color/sepi_orange_600" />
+                            app:tint="@color/sepi_brand_shade" />
 
                         <TextView
                             style="@style/TextAppearance.Sepi.Body"
