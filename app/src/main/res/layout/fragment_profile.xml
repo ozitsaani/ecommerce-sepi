@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Header Bar Kaca -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_glass_header"
+        android:padding="@dimen/spacing_sm">
+
+        <TextView
+            style="@style/TextAppearance.Sepi.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
+            android:text="@string/profile_title" />
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="@dimen/spacing_base"
+            android:paddingBottom="96dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 1. Header Kartu Profil -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_glass_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_lg">
+
+                    <!-- Avatar Bulat -->
+                    <TextView
+                        android:id="@+id/tvAvatarInitial"
+                        style="@style/TextAppearance.Sepi.Title"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_chip_selected"
+                        android:gravity="center"
+                        android:textColor="@color/sepi_orange_700"
+                        android:textSize="22sp"
+                        tools:text="A" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvProfileName"
+                            style="@style/TextAppearance.Sepi.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_lg"
+                            tools:text="Andini Puteri" />
+
+                        <TextView
+                            android:id="@+id/tvProfileEmail"
+                            style="@style/TextAppearance.Sepi.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            tools:text="andini@email.com" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/btnEditProfile"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_glass_input"
+                        android:contentDescription="@string/menu_edit_profile"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_edit"
+                        app:tint="@color/sepi_orange_700" />
+                </LinearLayout>
+
+                <!-- 2. Pintasan Status Pesanan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_glass_card"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_md">
+
+                    <TextView
+                        style="@style/TextAppearance.Sepi.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/menu_orders"
+                        android:textSize="@dimen/text_md" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <!-- Belum Bayar -->
+                        <LinearLayout
+                            android:id="@+id/shortcutUnpaid"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_payments"
+                                app:tint="@color/sepi_orange_600" />
+
+                            <TextView
+                                style="@style/TextAppearance.Sepi.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/tab_unpaid" />
+                        </LinearLayout>
+
+                        <!-- Diproses -->
+                        <LinearLayout
+                            android:id="@+id/shortcutProcess"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_receipt"
+                                app:tint="@color/sepi_orange_600" />
+
+                            <TextView
+                                style="@style/TextAppearance.Sepi.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/tab_process" />
+                        </LinearLayout>
+
+                        <!-- Dikirim -->
+                        <LinearLayout
+                            android:id="@+id/shortcutShipped"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_shipping"
+                                app:tint="@color/sepi_orange_600" />
+
+                            <TextView
+                                style="@style/TextAppearance.Sepi.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/tab_shipped" />
+                        </LinearLayout>
+
+                        <!-- Selesai -->
+                        <LinearLayout
+                            android:id="@+id/shortcutDelivered"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_check_circle"
+                                app:tint="@color/sepi_orange_600" />
+
+                            <TextView
+                                style="@style/TextAppearance.Sepi.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/tab_delivered" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 3. Kartu Menu Pengaturan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_glass_card"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_sm">
+
+                    <!-- Daftar Alamat -->
+                    <LinearLayout
+                        android:id="@+id/menuAddresses"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/spacing_md">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_location"
+                            app:tint="@color/sepi_orange_600" />
+
+                        <TextView
+                            style="@style/TextAppearance.Sepi.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_weight="1"
+                            android:text="@string/menu_addresses" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/sepi_divider" />
+
+                    <!-- Favorit -->
+                    <LinearLayout
+                        android:id="@+id/menuFavorites"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/spacing_md">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_favorite_border"
+                            app:tint="@color/sepi_orange_600" />
+
+                        <TextView
+                            style="@style/TextAppearance.Sepi.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_weight="1"
+                            android:text="@string/menu_favorites" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/sepi_divider" />
+
+                    <!-- Voucher -->
+                    <LinearLayout
+                        android:id="@+id/menuVouchers"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/spacing_md">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_voucher"
+                            app:tint="@color/sepi_orange_600" />
+
+                        <TextView
+                            style="@style/TextAppearance.Sepi.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_weight="1"
+                            android:text="@string/menu_vouchers" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/sepi_divider" />
+
+                    <!-- Keluar Akun -->
+                    <LinearLayout
+                        android:id="@+id/menuLogout"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/spacing_md">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_logout"
+                            app:tint="@color/sepi_danger" />
+
+                        <TextView
+                            style="@style/TextAppearance.Sepi.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:layout_weight="1"
+                            android:text="@string/menu_logout"
+                            android:textColor="@color/sepi_danger" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Versi Aplikasi -->
+                <TextView
+                    android:id="@+id/tvAppVersion"
+                    style="@style/TextAppearance.Sepi.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:text="@string/app_version"
+                    android:textColor="@color/sepi_ink_soft" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

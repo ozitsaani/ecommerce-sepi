@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardVoucher"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="12dp"
+    app:cardBackgroundColor="@color/sepi_glass_fill"
+    app:cardCornerRadius="@dimen/radius_card"
+    app:cardElevation="@dimen/card_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_md">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_voucher"
+                app:tint="@color/sepi_orange_600" />
+
+            <TextView
+                android:id="@+id/tvVoucherTitle"
+                style="@style/TextAppearance.Sepi.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/text_base"
+                tools:text="Diskon 10 persen" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCopyCode"
+                style="@style/Widget.Sepi.Button.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="0dp"
+                android:text="@string/btn_copy_code"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvVoucherDesc"
+            style="@style/TextAppearance.Sepi.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="2"
+            tools:text="Diskon 10 persen, maksimal Rp25.000. Minimal belanja Rp100.000." />
+
+        <TextView
+            android:id="@+id/tvVoucherCode"
+            style="@style/TextAppearance.Sepi.Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_glass_input"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:textSize="@dimen/text_xs"
+            tools:text="KODE: SEPIHEMAT" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

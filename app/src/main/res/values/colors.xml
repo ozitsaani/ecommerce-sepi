@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand colors -->
+    <color name="sepi_orange_400">#FB923C</color>
+    <color name="sepi_orange_500">#F97316</color>
+    <color name="sepi_orange_600">#EA580C</color>
+    <color name="sepi_orange_700">#C2410C</color>
+    <color name="sepi_amber_400">#FBBF24</color>
+    <color name="sepi_amber_600">#D97706</color>
+    <color name="sepi_input_stroke">#D47953</color>
+    <color name="sepi_peach_50">#FFF7ED</color>
+    <color name="sepi_peach_100">#FFEDD5</color>
+    <color name="sepi_ink">#431407</color>
+    <color name="sepi_ink_soft">#7C5A47</color>
+
+    <!-- Glassmorphism fill & stroke -->
+    <color name="sepi_glass_fill">#CCFFFFFF</color>
+    <color name="sepi_glass_bar">#E6FFFFFF</color>
+    <color name="sepi_glass_sheet">#F2FFFFFF</color>
+    <color name="sepi_glass_stroke">#26EA580C</color>
+    <color name="sepi_glass_input">#B3FFFFFF</color>
+    <color name="sepi_glass_nav_indicator">#1AEA580C</color>
+
+    <!-- State colors -->
+    <color name="sepi_success">#15803D</color>
+    <color name="sepi_success_bg">#DCFCE7</color>
+    <color name="sepi_danger">#DC2626</color>
+    <color name="sepi_danger_bg">#FEE2E2</color>
+
+    <!-- Order status badges (Text & Background) -->
+    <color name="status_unpaid_text">#B45309</color>
+    <color name="status_unpaid_bg">#FEF3C7</color>
+
+    <color name="status_paid_text">#0F766E</color>
+    <color name="status_paid_bg">#CCFBF1</color>
+
+    <color name="status_shipped_text">#1D4ED8</color>
+    <color name="status_shipped_bg">#DBEAFE</color>
+
+    <color name="status_delivered_text">#15803D</color>
+    <color name="status_delivered_bg">#DCFCE7</color>
+
+    <color name="status_cancelled_text">#4B5563</color>
+    <color name="status_cancelled_bg">#F3F4F6</color>
+
+    <!-- Common utilities -->
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="sepi_divider">#1A431407</color>
+    <color name="sepi_star">#D97706</color>
+</resources>

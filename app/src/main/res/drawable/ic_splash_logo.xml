@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Rounded Orange Gradient Background -->
+    <path
+        android:fillColor="#EA580C"
+        android:pathData="M24,8h48c8.84,0 16,7.16 16,16v48c0,8.84 -7.16,16 -16,16H24c-8.84,0 -16,-7.16 -16,-16V24c0,-8.84 7.16,-16 16,-16z" />
+    <!-- White Shopping Bag Glyph -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M58,36 L58,31 C58,25.48 53.52,21 48,21 C42.48,21 38,25.48 38,31 L38,36 L30,36 C27.79,36 26,37.79 26,40 L26,70 C26,73.31 28.69,76 32,76 L64,76 C67.31,76 70,73.31 70,70 L70,40 C70,37.79 68.21,36 66,36 L58,36 Z M42,31 C42,27.69 44.69,25 48,25 C51.31,25 54,27.69 54,31 L54,36 L42,36 L42,31 Z M65,70 C65,70.55 64.55,71 64,71 L32,71 C31.45,71 31,70.55 31,70 L31,41 L38,41 L38,45 C38,46.1 38.9,47 40,47 C41.1,47 42,46.1 42,45 L42,41 L54,41 L54,45 C54,46.1 54.9,47 56,47 C57.1,47 58,46.1 58,45 L58,41 L65,41 L65,70 Z" />
+</vector>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="8dp">
+
+    <!-- Indikator Titik Timeline Vertikal -->
+    <LinearLayout
+        android:layout_width="24dp"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/dotTimeline"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/bg_badge_paid" />
+
+        <View
+            android:id="@+id/lineTimeline"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/sepi_divider" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTrackingTitle"
+            style="@style/TextAppearance.Sepi.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_sm"
+            tools:text="Paket diserahkan ke kurir" />
+
+        <TextView
+            android:id="@+id/tvTrackingDesc"
+            style="@style/TextAppearance.Sepi.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            tools:text="Kurir Sepi menjemput paket. No. resi SPK123456789" />
+
+        <TextView
+            android:id="@+id/tvTrackingTime"
+            style="@style/TextAppearance.Sepi.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/sepi_ink_soft"
+            tools:text="10 menit lalu" />
+
+    </LinearLayout>
+</LinearLayout>

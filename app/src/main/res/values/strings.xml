@@ -1,0 +1,212 @@
+<resources>
+    <!-- App Identity -->
+    <string name="app_name">Sepi</string>
+    <string name="app_slogan">Belanja jadi ramai</string>
+    <string name="app_version">Versi 1.0.0 (UAS Pemrograman Mobile Dasar)</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Beranda</string>
+    <string name="nav_category">Kategori</string>
+    <string name="nav_favorite">Favorit</string>
+    <string name="nav_orders">Pesanan</string>
+    <string name="nav_account">Akun</string>
+
+    <!-- Auth -->
+    <string name="tab_sign_in">Masuk</string>
+    <string name="tab_sign_up">Daftar</string>
+    <string name="full_name">Nama Lengkap</string>
+    <string name="hint_full_name">Masukkan nama lengkap</string>
+    <string name="email">Email</string>
+    <string name="hint_email">nama@email.com</string>
+    <string name="password">Kata Sandi</string>
+    <string name="hint_password">Minimal 6 karakter</string>
+    <string name="confirm_password">Konfirmasi Kata Sandi</string>
+    <string name="hint_confirm_password">Ulangi kata sandi</string>
+    <string name="btn_sign_in">Masuk Sekarang</string>
+    <string name="btn_sign_up">Daftar Akun Baru</string>
+    <string name="auth_error_name_empty">Nama lengkap tidak boleh kosong</string>
+    <string name="auth_error_email_invalid">Format email tidak valid</string>
+    <string name="auth_error_password_length">Kata sandi minimal 6 karakter</string>
+    <string name="auth_error_password_mismatch">Konfirmasi kata sandi tidak cocok</string>
+    <string name="session_expired">Sesi berakhir, silakan masuk lagi</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Halo, %1$s</string>
+    <string name="search_hint">Cari produk idaman di Sepi...</string>
+    <string name="section_vouchers">Voucher Spesial Untukmu</string>
+    <string name="section_categories">Kategori Pilihan</string>
+    <string name="section_flash_sale">Flash Sale</string>
+    <string name="section_recommendations">Rekomendasi Produk</string>
+    <string name="view_all">Lihat Semua</string>
+    <string name="voucher_code_copied">Kode voucher %1$s disalin!</string>
+
+    <!-- Products & Filter -->
+    <string name="filter_title">Filter Produk</string>
+    <string name="sort_newest">Terbaru</string>
+    <string name="sort_bestseller">Terlaris</string>
+    <string name="sort_price_asc">Harga Terendah</string>
+    <string name="sort_price_desc">Harga Tertinggi</string>
+    <string name="filter_price_range">Rentang Harga (Rp)</string>
+    <string name="filter_min_price">Harga Min</string>
+    <string name="filter_max_price">Harga Maks</string>
+    <string name="filter_rating_four">Rating 4 ke atas</string>
+    <string name="filter_apply">Terapkan</string>
+    <string name="filter_reset">Reset</string>
+    <string name="empty_products">Produk tidak ditemukan</string>
+    <string name="empty_products_desc">Coba gunakan kata kunci lain atau ubah filter pencarian</string>
+    <string name="sold_count">%1$d terjual</string>
+    <string name="stock_count">Stok: %1$d</string>
+    <string name="stock_low">Stok menipis: sisa %1$d</string>
+    <string name="stock_empty">Stok habis</string>
+
+    <!-- Product Detail -->
+    <string name="product_description">Deskripsi Produk</string>
+    <string name="see_more">Lihat selengkapnya</string>
+    <string name="see_less">Sembunyikan</string>
+    <string name="product_reviews">Ulasan Pembeli</string>
+    <string name="all_reviews">Lihat semua ulasan</string>
+    <string name="btn_add_to_cart">Tambah Keranjang</string>
+    <string name="btn_buy_now">Beli Sekarang</string>
+    <string name="select_variant">Pilih Varian</string>
+    <string name="quantity">Jumlah</string>
+    <string name="added_to_cart">Berhasil ditambahkan ke keranjang</string>
+
+    <!-- Cart -->
+    <string name="cart_title">Keranjang Belanja</string>
+    <string name="select_all">Pilih Semua</string>
+    <string name="checkout_btn">Checkout (%1$d)</string>
+    <string name="empty_cart">Keranjangmu masih kosong</string>
+    <string name="empty_cart_desc">Yuk cari barang impianmu dan mulai belanja!</string>
+    <string name="start_shopping">Mulai Belanja</string>
+    <string name="delete_cart_confirm">Hapus produk ini dari keranjang?</string>
+    <string name="stock_remaining">Stok tersisa %1$d</string>
+
+    <!-- Checkout -->
+    <string name="checkout_title">Pengiriman &amp; Checkout</string>
+    <string name="shipping_address_title">Alamat Pengiriman</string>
+    <string name="change_address">Ubah</string>
+    <string name="add_address">Tambah Alamat</string>
+    <string name="no_address_warning">Silakan tambah alamat pengiriman terlebih dahulu</string>
+    <string name="non_cirebon_warning">Alamat harus berada di wilayah Cirebon</string>
+    <string name="order_items_title">Rincian Barang</string>
+    <string name="shipping_method_title">Opsi Pengiriman</string>
+    <string name="shipping_reguler">Reguler (2-3 hari) - Rp10.000</string>
+    <string name="shipping_express">Express (1 hari) - Rp25.000</string>
+    <string name="voucher_section_title">Voucher Promo</string>
+    <string name="btn_select_voucher">Gunakan Voucher</string>
+    <string name="payment_method_title">Metode Pembayaran</string>
+    <string name="payment_bca_va">Virtual Account BCA (Sandbox)</string>
+    <string name="payment_summary_title">Ringkasan Pembayaran</string>
+    <string name="subtotal">Subtotal Produk</string>
+    <string name="shipping_cost">Biaya Pengiriman</string>
+    <string name="discount">Potongan Diskon</string>
+    <string name="total_payment">Total Pembayaran</string>
+    <string name="btn_place_order">Buat Pesanan</string>
+
+    <!-- Payment -->
+    <string name="payment_title">Pembayaran</string>
+    <string name="transfer_va_title">Transfer ke Virtual Account</string>
+    <string name="va_number_label">Nomor Virtual Account BCA</string>
+    <string name="order_code_label">Kode Pesanan</string>
+    <string name="payment_deadline_label">Batas Waktu Pembayaran</string>
+    <string name="btn_check_payment">Cek Status Pembayaran</string>
+    <string name="btn_cancel_order">Batalkan Pesanan</string>
+    <string name="cancel_order_confirm">Apakah kamu yakin ingin membatalkan pesanan ini?</string>
+    <string name="sandbox_notice">Mode sandbox: Pembayaran tidak menggunakan uang sungguhan.</string>
+    <string name="payment_expired">Waktu pembayaran telah habis</string>
+    <string name="payment_success_dialog">Pembayaran Berhasil!</string>
+    <string name="payment_success_desc">Pesananmu sudah lunas dan segera diproses penjual.</string>
+    <string name="copied">Berhasil disalin ke clipboard</string>
+
+    <!-- Order Tracking -->
+    <string name="tracking_title">Lacak Pesanan</string>
+    <string name="step_paid">Dibayar</string>
+    <string name="step_packed">Dikemas</string>
+    <string name="step_shipped">Dikirim</string>
+    <string name="step_delivered">Diterima</string>
+    <string name="tracking_info">Informasi Pengiriman</string>
+    <string name="courier_label">Kurir: %1$s</string>
+    <string name="receipt_label">No. Resi: %1$s</string>
+    <string name="receipt_not_available">Belum tersedia</string>
+    <string name="timeline_title">Riwayat Pengiriman</string>
+    <string name="btn_demo_advance">Simulasikan langkah berikutnya</string>
+    <string name="demo_badge">MODE DEMO</string>
+    <string name="btn_pay_now">Bayar Sekarang</string>
+    <string name="btn_write_review">Beri Ulasan</string>
+
+    <!-- Orders List -->
+    <string name="tab_all">Semua</string>
+    <string name="tab_unpaid">Belum Bayar</string>
+    <string name="tab_process">Diproses</string>
+    <string name="tab_shipped">Dikirim</string>
+    <string name="tab_delivered">Selesai</string>
+    <string name="tab_cancelled">Dibatalkan</string>
+    <string name="other_products">+%1$d produk lainnya</string>
+    <string name="order_expired_badge">Kedaluwarsa</string>
+    <string name="empty_orders">Belum ada pesanan</string>
+    <string name="empty_orders_desc">Pesanan yang kamu buat akan tampil di sini</string>
+
+    <!-- Profile & Settings -->
+    <string name="profile_title">Profil Saya</string>
+    <string name="menu_orders">Pesanan Saya</string>
+    <string name="menu_addresses">Daftar Alamat</string>
+    <string name="menu_favorites">Produk Favorit</string>
+    <string name="menu_vouchers">Voucher Saya</string>
+    <string name="menu_edit_profile">Ubah Profil</string>
+    <string name="menu_logout">Keluar Akun</string>
+    <string name="logout_confirm">Apakah kamu yakin ingin keluar dari aplikasi?</string>
+    <string name="edit_profile_title">Ubah Profil</string>
+    <string name="phone_number">Nomor Telepon</string>
+    <string name="hint_phone">081234567890</string>
+    <string name="save">Simpan</string>
+    <string name="delete">Hapus</string>
+    <string name="cancel">Batal</string>
+    <string name="btn_retry">Coba Lagi</string>
+
+    <!-- Addresses -->
+    <string name="addresses_title">Alamat Pengiriman</string>
+    <string name="add_new_address">Tambah Alamat Baru</string>
+    <string name="edit_address_title">Ubah Alamat</string>
+    <string name="address_label">Label Alamat (cth: Rumah, Kantor)</string>
+    <string name="recipient_name">Nama Penerima</string>
+    <string name="street_address">Alamat Lengkap / Jalan</string>
+    <string name="district">Kecamatan</string>
+    <string name="city_locked">Kota (Terkunci: Cirebon)</string>
+    <string name="city_cirebon">Cirebon</string>
+    <string name="postal_code">Kode Pos (5 digit)</string>
+    <string name="set_as_default">Jadikan Alamat Utama</string>
+    <string name="badge_default_address">Utama</string>
+    <string name="delete_address_confirm">Hapus alamat ini?</string>
+    <string name="empty_addresses">Belum ada alamat tersimpan</string>
+
+    <!-- Vouchers -->
+    <string name="vouchers_title">Koleksi Voucher</string>
+    <string name="empty_vouchers">Tidak ada voucher tersedia saat ini</string>
+    <string name="voucher_min_spend">Min. Belanja %1$s</string>
+    <string name="voucher_valid_until">Berlaku s/d %1$s</string>
+    <string name="btn_copy_code">Salin</string>
+
+    <!-- Reviews -->
+    <string name="reviews_title">Ulasan Produk</string>
+    <string name="write_review_title">Tulis Ulasan</string>
+    <string name="rating_label">Beri Bintang</string>
+    <string name="comment_label">Ulasanmu (maks 300 karakter)</string>
+    <string name="hint_comment">Ceritakan pengalamanmu menggunakan produk ini...</string>
+    <string name="submit_review">Kirim Ulasan</string>
+    <string name="review_thank_you">Terima kasih atas ulasanmu!</string>
+    <string name="empty_reviews">Belum ada ulasan untuk produk ini</string>
+
+    <!-- Favorites -->
+    <string name="favorites_title">Produk Favorit</string>
+    <string name="empty_favorites">Belum ada produk favorit</string>
+    <string name="empty_favorites_desc">Ketuk ikon hati pada produk yang kamu sukai untuk menyimpannya</string>
+
+    <!-- General Error States -->
+    <string name="error_network">Tidak ada koneksi internet. Periksa jaringanmu lalu coba lagi.</string>
+    <string name="error_server">Server sedang bermasalah, coba beberapa saat lagi.</string>
+    <string name="error_forbidden">Kamu tidak punya izin untuk aksi ini.</string>
+    <string name="error_review_forbidden">Ulasan hanya bisa ditulis setelah pesananmu diterima.</string>
+    <string name="error_review_already_exists">Kamu sudah memberi ulasan untuk produk ini.</string>
+    <string name="error_general">Terjadi kesalahan, coba lagi.</string>
+    <string name="config_missing_error">Konfigurasi backend belum diisi di local.properties. Silakan periksa README.</string>
+</resources>

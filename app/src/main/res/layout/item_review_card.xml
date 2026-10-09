@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_glass_input"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_md">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Avatar Inisial -->
+        <TextView
+            android:id="@+id/tvAvatarInitial"
+            style="@style/TextAppearance.Sepi.Title"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_chip_selected"
+            android:gravity="center"
+            android:textColor="@color/sepi_orange_700"
+            android:textSize="14sp"
+            tools:text="A" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvReviewerName"
+                style="@style/TextAppearance.Sepi.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_sm"
+                android:textStyle="bold"
+                tools:text="Andini" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressTint="@color/sepi_amber_400" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvReviewTime"
+            style="@style/TextAppearance.Sepi.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="3 hari lalu" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvReviewComment"
+        style="@style/TextAppearance.Sepi.Body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textSize="@dimen/text_sm"
+        tools:text="Barang sesuai deskripsi, pengemasan rapi dan pengiriman cepat." />
+
+</LinearLayout>

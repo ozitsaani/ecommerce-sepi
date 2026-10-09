@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header Bar Kaca -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_glass_header"
+            android:gravity="center_vertical"
+            android:padding="@dimen/spacing_sm">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cancel"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/sepi_ink" />
+
+            <TextView
+                style="@style/TextAppearance.Sepi.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="@string/payment_title" />
+
+        </LinearLayout>
+
+        <!-- Scroll Konten Pembayaran -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="@dimen/spacing_base">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Error State -->
+                <com.sepi.market.ui.common.ErrorStateView
+                    android:id="@+id/errorView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+                <!-- Kartu Kaca Pembayaran -->
+                <LinearLayout
+                    android:id="@+id/cardPayment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_glass_card"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_lg">
+
+                    <!-- Title VA -->
+                    <TextView
+                        style="@style/TextAppearance.Sepi.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transfer_va_title" />
+
+                    <TextView
+                        style="@style/TextAppearance.Sepi.Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/payment_bca_va" />
+
+                    <!-- Nomor VA & Tombol Salin -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:background="@drawable/bg_glass_input"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_md">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextAppearance.Sepi.Caption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/va_number_label" />
+
+                            <TextView
+                                android:id="@+id/tvVaNumber"
+                                style="@style/TextAppearance.Sepi.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="monospace"
+                                android:textColor="@color/sepi_orange_700"
+                                android:textSize="20sp"
+                                tools:text="123 456 7890" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCopyVa"
+                            style="@style/Widget.Sepi.Button.Secondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="0dp"
+                            android:text="@string/btn_copy_code"
+                            android:textSize="12sp"
+                            app:icon="@drawable/ic_copy"
+                            app:iconGravity="textStart"
+                            app:iconSize="14dp"
+                            app:iconTint="@color/sepi_orange_700" />
+                    </LinearLayout>
+
+                    <!-- Kode Pesanan & Total Pembayaran -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextAppearance.Sepi.Caption"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/order_code_label" />
+
+                        <TextView
+                            android:id="@+id/tvOrderCode"
+                            style="@style/TextAppearance.Sepi.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            tools:text="SPI26100412345" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextAppearance.Sepi.Caption"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/total_payment" />
+
+                        <TextView
+                            android:id="@+id/tvTotalAmount"
+                            style="@style/TextAppearance.Sepi.Price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_lg"
+                            tools:text="Rp184.000" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_md"
+                        android:background="@color/sepi_divider" />
+
+                    <!-- Hitung Mundur Batas Waktu -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.Sepi.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/payment_deadline_label" />
+
+                        <TextView
+                            android:id="@+id/tvCountdown"
+                            style="@style/TextAppearance.Sepi.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_badge_flash_sale"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="6dp"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            tools:text="23:59:50" />
+                    </LinearLayout>
+
+                    <!-- Pemberitahuan Sandbox -->
+                    <TextView
+                        style="@style/TextAppearance.Sepi.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:gravity="center"
+                        android:text="@string/sandbox_notice"
+                        android:textColor="@color/sepi_ink_soft" />
+
+                    <!-- Tombol Aksi -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCheckPayment"
+                        style="@style/Widget.Sepi.Button.Primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_lg"
+                        android:text="@string/btn_check_payment" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCancelOrder"
+                        style="@style/Widget.Sepi.Button.Secondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:text="@string/btn_cancel_order" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

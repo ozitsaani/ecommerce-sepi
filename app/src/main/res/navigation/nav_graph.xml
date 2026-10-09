@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sepi.market.ui.home.HomeFragment"
+        android:label="Beranda"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.sepi.market.ui.category.CategoryFragment"
+        android:label="Kategori"
+        tools:layout="@layout/fragment_category" />
+
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.sepi.market.ui.product.ProductListFragment"
+        android:label="Daftar Produk"
+        tools:layout="@layout/fragment_product_list">
+        <argument
+            android:name="categoryId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="query"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="flashOnly"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="focusSearch"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.sepi.market.ui.product.ProductDetailFragment"
+        android:label="Detail Produk"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="productId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.sepi.market.ui.cart.CartFragment"
+        android:label="Keranjang"
+        tools:layout="@layout/fragment_cart">
+        <argument
+            android:name="preselectId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.sepi.market.ui.checkout.CheckoutFragment"
+        android:label="Checkout"
+        tools:layout="@layout/fragment_checkout">
+        <argument
+            android:name="cartItemIds"
+            app:argType="string[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.sepi.market.ui.payment.PaymentFragment"
+        android:label="Pembayaran"
+        tools:layout="@layout/fragment_payment">
+        <argument
+            android:name="orderId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.sepi.market.ui.order.OrdersFragment"
+        android:label="Daftar Pesanan"
+        tools:layout="@layout/fragment_orders">
+        <argument
+            android:name="initialTab"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.sepi.market.ui.order.OrderDetailFragment"
+        android:label="Detail Pesanan"
+        tools:layout="@layout/fragment_order_detail">
+        <argument
+            android:name="orderId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.sepi.market.ui.favorite.FavoritesFragment"
+        android:label="Favorit"
+        tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sepi.market.ui.profile.ProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/addressesFragment"
+        android:name="com.sepi.market.ui.profile.AddressesFragment"
+        android:label="Daftar Alamat"
+        tools:layout="@layout/fragment_addresses" />
+
+    <fragment
+        android:id="@+id/vouchersFragment"
+        android:name="com.sepi.market.ui.profile.VouchersFragment"
+        android:label="Koleksi Voucher"
+        tools:layout="@layout/fragment_vouchers" />
+
+    <fragment
+        android:id="@+id/reviewsFragment"
+        android:name="com.sepi.market.ui.review.ReviewsFragment"
+        android:label="Ulasan"
+        tools:layout="@layout/fragment_reviews">
+        <argument
+            android:name="productId"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="productName"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="openWrite"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+
+</navigation>

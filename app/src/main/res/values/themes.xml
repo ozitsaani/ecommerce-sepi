@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.Sepi" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/sepi_orange_600</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/sepi_orange_500</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/sepi_peach_50</item>
+        <item name="colorSurface">@color/sepi_glass_fill</item>
+        <item name="colorOnSurface">@color/sepi_ink</item>
+
+        <!-- System bars -->
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Dialog and BottomSheet -->
+        <item name="bottomSheetDialogTheme">@style/Theme.Sepi.BottomSheetDialog</item>
+    </style>
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.Sepi.Splash" parent="Theme.Sepi">
+        <item name="android:windowBackground">@drawable/bg_app_gradient</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

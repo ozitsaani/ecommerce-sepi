@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Button (48dp, 14dp radius, sepi_orange_600) -->
+    <style name="Widget.Sepi.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/bg_btn_primary</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textColor">@color/sepi_ink</item>
+        <item name="android:textSize">@dimen/text_base</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:stateListAnimator">@animator/button_press_animator</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <!-- Secondary Button (transparent/glass, orange stroke) -->
+    <style name="Widget.Sepi.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:background">@drawable/bg_btn_secondary</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textColor">@color/sepi_orange_700</item>
+        <item name="android:textSize">@dimen/text_base</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:stateListAnimator">@animator/button_press_animator</item>
+        <item name="backgroundTint">@null</item>
+        <item name="strokeColor">@color/transparent</item>
+    </style>
+
+    <!-- Typography Styles -->
+    <style name="TextAppearance.Sepi.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/sepi_ink</item>
+        <item name="android:textSize">@dimen/text_xl</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.Sepi.Subtitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/sepi_ink_soft</item>
+        <item name="android:textSize">@dimen/text_base</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.Sepi.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/sepi_ink</item>
+        <item name="android:textSize">@dimen/text_base</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.Sepi.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/sepi_ink_soft</item>
+        <item name="android:textSize">@dimen/text_xs</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.Sepi.Price" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/sepi_orange_700</item>
+        <item name="android:textSize">@dimen/text_md</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Glass Bottom Sheet Dialog Theme -->
+    <style name="Theme.Sepi.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.Sepi.BottomSheet.Modal</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+    </style>
+
+    <style name="Widget.Sepi.BottomSheet.Modal" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/transparent</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <!-- Shape Appearance for Rounded Image View -->
+    <style name="ShapeAppearance.Sepi.Rounded16" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- Bottom Navigation Styling -->
+    <style name="Widget.Sepi.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/sepi_glass_nav_indicator</item>
+        <item name="android:width">44dp</item>
+        <item name="android:height">28dp</item>
+    </style>
+
+    <style name="TextAppearance.Sepi.BottomNav" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">11sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardCartItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/sepi_glass_fill"
+    app:cardCornerRadius="@dimen/radius_card"
+    app:cardElevation="@dimen/card_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_md">
+
+        <!-- Checkbox Pilih Item -->
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:buttonTint="@color/sepi_orange_600" />
+
+        <!-- Gambar Produk -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCartProductImage"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="4dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Sepi.Rounded16"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <!-- Info Produk -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvCartProductName"
+                    style="@style/TextAppearance.Sepi.Body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textSize="@dimen/text_sm"
+                    tools:text="Earbuds Bluetooth TWS" />
+
+                <ImageView
+                    android:id="@+id/btnDelete"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/delete_cart_confirm"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_delete"
+                    app:tint="@color/sepi_danger" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCartVariantLabel"
+                style="@style/TextAppearance.Sepi.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:text="Warna: Hitam"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvStockWarning"
+                style="@style/TextAppearance.Sepi.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/sepi_danger"
+                android:visibility="gone"
+                tools:text="Stok tersisa 2"
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvCartUnitPrice"
+                    style="@style/TextAppearance.Sepi.Price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_base"
+                    tools:text="Rp189.000" />
+
+                <!-- Stepper Jumlah -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_glass_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <ImageView
+                        android:id="@+id/btnMinus"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/quantity"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_remove"
+                        app:tint="@color/sepi_ink" />
+
+                    <TextView
+                        android:id="@+id/tvQuantity"
+                        style="@style/TextAppearance.Sepi.Title"
+                        android:layout_width="28dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_sm"
+                        tools:text="1" />
+
+                    <ImageView
+                        android:id="@+id/btnPlus"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/quantity"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_add"
+                        app:tint="@color/sepi_ink" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
